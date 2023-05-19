@@ -1,0 +1,127 @@
+﻿@page
+@model CIE_206.Pages.AnyUserView.SignUpPageModel
+
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+@{
+    Layout = "EmptyLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main Template CSS -->
+    <link rel="stylesheet" href="~/css/AnyUserView/SignUpPage.css" />
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="~/css/Normalize.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="go-back-link">
+        <a asp-page="/Index"></a>
+    </div>
+    <div class="left">
+        <div class="form-container">
+
+
+            <div class="logo">
+                <img src="~/images/logo.png" alt="">
+            </div>
+
+
+            <div>@Model.Message</div>
+
+
+            <form class="form" method="post">
+
+                <div class="firstname input-container">
+                    <label asp-for="@Model.Fname">الاسم الاول:</label>
+                    <input asp-for="@Model.Fname" required>
+                </div>
+
+                <div class="lastname input-container">
+                    <label asp-for="@Model.Lname">الاسم الاخير:</label>
+                    <input asp-for="@Model.Lname" required>
+                </div>
+
+                <div class="email input-container">
+                    <label asp-for="@Model.U_Email">البريد الالكتروني:</label>
+                    <input asp-for="@Model.U_Email" required>
+                </div>
+
+                <div class="password input-container">
+                    <label asp-for="@Model.U_Password">كلمة المرور:</label>
+                    <input asp-for="@Model.U_Password" type="password" required>
+                </div>
+
+                <div class="phone-number input-container">
+                    <label asp-for="@Model.PhoneNumber">رقم الهاتف:</label>
+                    <input asp-for="@Model.PhoneNumber" required>
+                </div>
+
+                <div class="country input-container">
+                    <label asp-for="@Model.Country">الدولة:</label>
+                    <select asp-for="@Model.Country" required>
+                        <option value="">اختر الدولة</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Djibouti">Djibouti</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Palestine">Palestine</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Syria">Syria</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="Yemen">Yemen</option>
+                    </select>
+                </div>
+
+                <div class="birthdate input-container" dir="rtl">
+                    <label asp-for="@Model.BirthDate">تاريخ الميلاد:</label>
+                    <input type="date" asp-for="@Model.BirthDate">
+                </div>
+
+               <div class="gender input-container">
+                    <input type="radio" asp-for="@Model.Gender" id="male" name="gender" value="male" required> 
+                    <label for="male">ذكر</label>
+                    <input type="radio" asp-for="@Model.Gender" id="female" name="gender" value="female" required> 
+                    <label for="female">انثي</label>
+                </div>
+
+                <div class="login input-container">
+                    <a asp-page="/AnyUserView/LoginPage">هل لديك حساب بالفعل؟ سجل دخول</a>
+                </div>
+
+                <div class="submit input-container">
+                    <input type="submit" value="انشاء حساب">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="right">
+
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,205 @@
+﻿
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FREEHTML5.CO" />
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <title>@ViewData["Title"] - CIE_206</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CIE_206.styles.css" asp-append-version="true" />
+
+
+
+
+    <link rel="shortcut icon" href="~/template1/favicon.ico">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/template1/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/template1/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/template1/css/bootstrap.css">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="~/template1/css/superfish.css">
+
+    <link rel="stylesheet" href="~/template1/css/style.css">
+    <link rel="stylesheet" href="~/template1/css/arabic_version.css" />
+
+    <!-- Modernizr JS -->
+    <script src="~/template1/js/modernizr-2.6.2.min.js"></script>
+
+
+
+    <link rel="icon" href="~/template2/images/fevicon.png" type="image/gif" />
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="~/template2/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/template2/css/responsive.css">
+    <link rel="stylesheet" href="~/template2/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/template2/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link href="~/template2/css/template2finalstyple.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div id="fh5co-wrapper">
+
+        <div id="fh5co-page">
+
+
+            <div class="header-top header-top-arabic">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 text-left fh5co-social">
+                            <a href="https://www.facebook.com/a2elaty/" class="grow" target="_blank"><i class="icon-facebook2"></i></a>
+                            <a href="https://www.facebook.com/a2elaty/" class="grow" target="_blank"><i class="icon-twitter2"></i></a>
+                            <a href="https://www.facebook.com/a2elaty/" class="grow" target="_blank"><i class="icon-instagram2"></i></a>
+                        </div>
+                        <div class="col-md-6 col-sm-6 text-right fh5co-link">
+                            @{
+                                if (Context.Session.GetString("UserType") == null)
+                                {
+                                    <a class="fh5co-link-link" asp-page="/AnyUserView/LoginPage">تسجيل دخول | </a>
+                                    <a class="fh5co-link-link" asp-page="/AnyUserView/SignUpPage">إنشاء حساب</a>
+                                }
+                                else
+                                {
+                                    string name = Context.Session.GetString("UserFname");
+                                    <a class="fh5co-link-link" asp-page="/Index" asp-page-handler="LogOut">تسجيل خروج | </a>
+                                    <a class="fh5co-link-link" asp-page="/AnyUserView/Personal_Info">@name أهلا</a>
+                                    <a class="fh5co-link-link" asp-page="/AnyUserView/Personal_Info"><img src="../wwwroot/images/profile.jpg" /></a>
+                             
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <header id="fh5co-header-section" class="sticky-banner">
+                <div class="container">
+                    <div class="nav-header">
+                        <a href="#" class="headeer-button js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+                        <h1 id="fh5co-logo">
+                            <a asp-page="/Index">
+                                <img src="~/images/logophoto.png" />
+                            </a>
+                        </h1>
+                        <!-- START #fh5co-menu-wrap -->
+                        <nav id="fh5co-menu-wrap" role="navigation">
+                            <ul class="sf-menu" id="fh5co-primary-menu">
+                                <li class="active"><a asp-page="/Index">الصفحة الرئيسية</a></li>
+                                <li><a asp-page="/AnyUserView/DonatorPage" class="fh5co-sub-ddown">تبرع</a></li>
+                                <li><a asp-page="/AnyUserView/VolunteerPage" class="fh5co-sub-ddown">تطوع</a></li>
+                                <li><a asp-page="/AnyUserView/ContactPage">تواصل معنا</a></li>
+                                <li><a asp-page="/AnyUserView/AboutPage">عنا</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+
+
+
+
+
+
+
+            @RenderBody()
+
+
+
+
+
+            <footer>
+                <div id="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3 text-center">
+                                <p class="fh5co-social-icons">
+                                    <a href="https://www.facebook.com/a2elaty/" target="_blank"><i class="icon-twitter2"></i></a>
+                                    <a href="https://www.facebook.com/a2elaty/" target="_blank"><i class="icon-facebook2"></i></a>
+                                    <a href="https://www.facebook.com/a2elaty/" target="_blank"><i class="icon-instagram"></i></a>
+                                    <a href="https://www.facebook.com/a2elaty/" target="_blank"><i class="icon-dribbble2"></i></a>
+                                    <a href="https://www.facebook.com/a2elaty/" target="_blank"><i class="icon-youtube"></i></a>
+                                </p>
+                                <p>
+                                    Copyright 2016 Free Html5 <a asp-page="/Index">Charity</a>. All Rights Reserved. <br>Made with
+                                    <i class="icon-heart3"></i> by <a href="http://freehtml5.co/"
+										target="_blank">Freehtml5.co</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/template1/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="~/template1/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/template1/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="~/template1/js/jquery.waypoints.min.js"></script>
+    <script src="~/template1/js/sticky.js"></script>
+
+    <!-- Stellar -->
+    <script src="~/template1/js/jquery.stellar.min.js"></script>
+    <!-- Superfish -->
+    <script src="~/template1/js/hoverIntent.js"></script>
+    <script src="~/template1/js/superfish.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/template1/js/main.js"></script>
+
+
+
+    <!-- Javascript files-->
+    <script src="~/template2/js/popper.min.js"></script>
+    <!-- sidebar -->
+
+    <!-- javascript --> 
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+</body>
+</html>
+

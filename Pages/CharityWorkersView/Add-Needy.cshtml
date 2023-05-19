@@ -1,0 +1,337 @@
+﻿@page
+@model CIE_206.Pages.CharityWorkersView.Add_NeedyModel
+@{
+}
+
+@{
+    Layout = "DashBoardLayout";
+}
+
+<style>
+    #link1 {
+        background: linear-gradient(to right, #fdd27c, #ff710e);
+        filter: brightness(110%);
+    }
+
+
+
+
+</style>
+
+
+
+<p class="main-title">
+    اضافة حالة
+</p>
+
+<div class="white-holder">
+    <form class="add-ads" method="post" enctype="multipart/form-data" asp-validation-summary="All">
+        <div class="white-holder">
+            <div class="add-ads-title">
+                بيانات الحالة
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <label class="add-ads-label">صور الحالة</label>
+                </div>
+
+                <div class="col-xs-11">
+                    <div class="imageupload panel panel-default">
+                        <div class="placeholder-img"> <img src="~/images/CharityWorkersView/upload-placeholder.png" alt="img"> </div>
+
+                        <p class="img-title">الصورة الأساسية</p>
+                        <div class="file-tab panel-body">
+                            <div class="upload-tools">
+                                <label class="btn btn-default btn-file">
+                                    <span><i class="fa fa-folder-open-o"></i></span>
+                                    <input asp-for="@Model.Needy.ImageData" type="file">
+                                </label>
+                                <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                        </div>
+                        <span asp-validation-for="@Model.Needy.ImageData" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="imageupload panel panel-default">
+                        <div class="placeholder-img"> <img src="~/images/CharityWorkersView/upload-placeholder.png" alt="img"> </div>
+
+                        <p class="img-title">صورة البطاقة الوجه الأمامي</p>
+                        <div class="file-tab panel-body">
+                            <div class="upload-tools">
+                                <label class="btn btn-default btn-file">
+                                    <span><i class="fa fa-folder-open-o"></i></span>
+                                    <input asp-for="@Model.Needy.Frontidimg" type="file">
+                                </label>
+                                <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                        </div>
+                        <span asp-validation-for="@Model.Needy.Frontidimg" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="imageupload panel panel-default">
+                        <div class="placeholder-img"> <img src="~/images/CharityWorkersView/upload-placeholder.png" alt="img"> </div>
+
+                        <p class="img-title">صورة البطاقة الوجه الخلفي</p>
+                        <div class="file-tab panel-body">
+                            <div class="upload-tools">
+                                <label class="btn btn-default btn-file">
+                                    <span><i class="fa fa-folder-open-o"></i></span>
+                                    <input asp-for="@Model.Needy.Backidimg" type="file">
+                                </label>
+                                <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                        </div>
+                        <span asp-validation-for="@Model.Needy.Backidimg" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-ads-title">
+            الاسم كامل
+        </div>
+        <div class="row">
+            ,<div class="name">
+                <div class=" col-xs-1">
+                    <label class="add-ads-label">الاسم الأول </label>
+
+                </div>
+                <div class="col-xs-2">
+                    <input asp-for="@Model.Needy.Fname" class="add-ads-input">
+                    <span asp-validation-for="@Model.Needy.Fname" class="text-danger"></span>
+
+                </div>
+
+
+                <div class=" col-xs-1">
+                    <label class="add-ads-label">الاسم الأوسط </label>
+                </div>
+                <div class="col-xs-2">
+                    <input asp-for="@Model.Needy.Mname" class="add-ads-input">
+                    <span asp-validation-for="@Model.Needy.Mname" class="text-danger"></span>
+
+                </div>
+
+
+                <div class=" col-xs-1">
+                    <label class="add-ads-label">الاسم الأخير </label>
+                </div>
+                <div class="col-xs-2">
+                    <input asp-for="@Model.Needy.Lname" class="add-ads-input">
+                    <span asp-validation-for="@Model.Needy.Lname" class="text-danger"></span>
+
+                </div>
+
+
+                <div class=" col-xs-1">
+                    <label class="add-ads-label">اسم العائلة </label>
+                </div>
+                <div class="col-xs-2">
+                    <input asp-for="@Model.Needy.Familyname" class="add-ads-input">
+                    <span asp-validation-for="@Model.Needy.Familyname" class="text-danger"></span>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="add-ads-title">
+            أرقام
+        </div>
+        <div class="row">
+            <div class=" col-xs-1">
+                <label class="add-ads-label">الرقم القومي   </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.SSN" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.SSN" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label">  رقم الهاتف </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.PhoneNum" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.PhoneNum" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label"> متوسط دخل الأسرة   </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.Income" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.Income" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label"> كود المنطقة   </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.AreaCode" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.AreaCode" class="text-danger"></span>
+
+            </div>
+
+        </div>
+
+        <div class="add-ads-title">
+            معلومات الأسرة
+        </div>
+        <div class="row">
+            <div class=" col-xs-1">
+                <label class="add-ads-label">  نوع الحاله    </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.Casetype" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.Casetype" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label">  عدد أفراد الأسرة  </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.NumberOfFamilyMembers" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.NumberOfFamilyMembers" class="text-danger"></span>
+
+            </div>
+            <div class=" col-xs-1">
+                <label class="add-ads-label">  المهنة    </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.Job" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.Job" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label"> تاريخ الميلاد </label>
+            </div>
+            <div class="col-xs-2">
+                <input type="date" asp-for="@Model.Needy.Birthdate" class="add-ads-input" asp-format="{0:yyyy-MM-dd}">
+                <span asp-validation-for="@Model.Needy.Birthdate" class="text-danger"></span>
+
+            </div>
+
+        </div>
+        <div class="add-ads-title">
+            العنوان
+        </div>
+
+        <div class="row">
+            <div class=" col-xs-1">
+                <label class="add-ads-label"> الشارع   </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.StreetAddress" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.StreetAddress" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label"> المنطقة </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.Area" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.Area" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label">   رقم الدور   </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.floornum" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.floornum" class="text-danger"></span>
+
+            </div>
+
+            <div class=" col-xs-1">
+                <label class="add-ads-label">  علامة مميزة </label>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.mark" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.mark" class="text-danger"></span>
+
+            </div>
+
+        </div>
+        <div class="add-ads-title">
+            تفاصيل الحالة
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-xs-12">
+                <label class="add-ads-label">التفاصيل</label>
+            </div>
+
+            <div class="col-sm-10 col-xs-12">
+                <textarea asp-for="@Model.Needy.Details" class="add-ads-input"></textarea>
+                <span asp-validation-for="@Model.Needy.Details" class="text-danger"></span>
+
+
+            </div>
+        </div>
+
+        <div class="add-ads-title">
+            بيانات أخري
+        </div>
+
+        <div class="row">
+
+
+
+
+            <div class="col-xs-1">
+                <div class="add-ads-label">الحالة الاجتماعية </div>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.SocialState" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.SocialState" class="text-danger"></span>
+
+
+            </div>
+
+
+            <div class="col-xs-1">
+                <div class="add-ads-label"> الحالة التعليمية</div>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.EducationalState" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.EducationalState" class="text-danger"></span>
+
+            </div>
+            <div class="col-xs-1">
+                <div class="add-ads-label">الحالة المرضية</div>
+            </div>
+            <div class="col-xs-2">
+                <input asp-for="@Model.Needy.HealthStatus" class="add-ads-input">
+                <span asp-validation-for="@Model.Needy.HealthStatus" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-xs-1">
+                <div class="add-ads-label">حالة القبول</div>
+            </div>
+            <div class="col-xs-2">
+                <select asp-for="@Model.Needy.AcceptStatus" class="add-ads-input">
+                    <option value="0">قيد الانتظار</option>
+                    <option value="1">مقبول</option>
+                    <option value="2">مرفوض</option>
+                </select>
+                <span asp-validation-for="@Model.Needy.AcceptStatus" class="text-danger"></span>
+
+            </div>
+
+            <div class="btn-area">
+                <button type="submit" class="btn-blue submit">أضف مستفيد  </button>
+            </div>
+        </div>
+    </form>
+</div>

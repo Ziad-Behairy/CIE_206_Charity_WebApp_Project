@@ -1,0 +1,75 @@
+﻿@page
+@model CIE_206.Pages.AnyUserView.LoginPageModel
+@{
+    ViewData["Title"] = "Log In";
+}
+
+@{
+    Layout = "EmptyLayout";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Main Template CSS -->
+    <link rel="stylesheet" href="~/css/AnyUserView/LoginPage.css" />
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="~/css/Normalize.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="go-back-link">
+        <a asp-page="/Index"></a>
+    </div>
+    <div class="left">
+        <div class="form-container">
+
+
+            <div class="logo">
+                <img src="~/images/logo.png" alt="">
+            </div>
+
+
+            <div>@Model.Message</div>
+
+
+            <form class="form" method="post">
+                <div class="email input-container" dir="rtl">
+                    <label asp-for="@Model.Email">:البريد الالكتروني</label>
+                    <input type="email" asp-for="@Model.Email" required>
+                </div>
+                <div class="password input-container" dir="rtl">
+                    <label asp-for="@Model.Password">:كلمة المرور</label>
+                    <input type="password" asp-for="@Model.Password" required>
+                </div>
+
+                <div class="create input-container" dir="rtl">
+                    <a asp-page="/AnyUserView/SignUpPage">ليس لديك حساب؟ انشئ جديد</a>
+                </div>
+                <div class="forgot input-container" dir="rtl">
+                    <a href="">هل نسيت كلمة المرور؟</a>
+                </div>
+
+                <div class="submit input-container">
+                    <input type="submit" value="سجل">
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="right">
+    </div>
+
+</body>
+</html>

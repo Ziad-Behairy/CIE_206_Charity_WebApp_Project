@@ -1,0 +1,468 @@
+﻿@page
+@model Project.Pages.DashBoard.StorageModel
+@{
+}
+
+@{
+    Layout = "DashBoardLayout";
+}
+
+<style>
+    #link2 {
+        background: linear-gradient(to right, #fdd27c, #ff710e);
+        filter: brightness(110%);
+    }
+</style>
+
+<p class="main-title">
+    المخازن
+</p>
+
+<div class="white-holder">
+    <div class="row">
+        <div class="col-xs-6">
+            <input class="my-input" tyle="text" placeholder="البحث السريع">
+        </div>
+        <div class="col-xs-3">
+            <select class="my-select">
+                <option>مخزن بنها</option>
+                <option>مخزن العبور</option>
+                <option>مخزن</option>
+            </select>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    @*<div class="row">
+    <div class="col-xs-3">
+    <input class="my-input" tyle="text" placeholder="المدينه">
+    </div>
+
+    <div class="col-xs-3">
+    <input class="my-input" tyle="text" placeholder="الحى">
+    </div>
+    *@
+
+    <div class="row">
+
+
+        <div class="col-xs-4">
+            <div class="holder-check">
+                <input type="checkbox" id="check1">
+                <label for="check1">اجهزة كهربية</label>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="holder-check">
+                <input type="checkbox" id="check2">
+                <label for="check2">مواد بناء</label>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="holder-check">
+                <input type="checkbox" id="check3">
+                <label for="check3">مواد غذائية</label>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="holder-check">
+                <input type="checkbox" id="check4">
+                <label for="check4">اثاث</label>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="transparent-holder">
+    <p class="date-title col-xs-12">
+        <span>22 ابريل</span>
+    </p>
+
+    @for (int i = 0; i < @Model.dt.Rows.Count; i++)
+    {
+        <tr>
+            <th scope="row">@i</th>
+            @for (int j = 0; j < @Model.dt.Columns.Count; j++)
+            {
+                <td>@Model.dt.Rows[i][j]</td>
+            }
+        </tr>
+    }
+    
+
+
+
+    <div class="row">
+
+        @for (int i = 0; i < @Model.dt.Rows.Count; i++)
+        {
+            
+            <div class="col-xs-6">
+                <div class="horizontal-item">
+                    <div class="head-holder bg-cover">
+                        @*<img src="~/img/demo-item.png">*@
+                    </div>
+                    <div class="content-side">
+                        <div class="content-holder">
+                            <div class="edit-item-holder">
+                                <a class="item-edit" data-toggle="modal" data-target="#ؤعس"><i class="fa fa-fw fa fa-pencil"></i></a>
+                                <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                            </div>
+                            <a class="item-title"> @Model.dt.Rows[i][0] </a>
+                            <p class="item-address"> @Model.dt.Rows[i][1] </p>
+                            <p class="item-date"> @Model.dt.Rows[i][2] </p>
+                        </div>
+
+                        <div class="footer-holder">
+                            <div class="r-side">
+                                @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                                <span class="item-amount"><i class="fa fa-arrows"></i> @Model.dt.Rows[i][3] </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+                
+
+
+
+            
+        }
+
+
+
+
+
+
+
+
+
+
+        <div class="col-xs-6">
+            <div class="horizontal-item">
+                <div class="head-holder bg-cover">
+                    @*<img src="~/img/demo-item.png">*@
+                </div>
+                <div class="content-side">
+                    <div class="content-holder">
+                        <div class="edit-item-holder">
+                            <a class="item-edit" data-toggle="modal" data-target="#ؤعس"><i class="fa fa-fw fa fa-pencil"></i></a>
+                            <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                        </div>
+                        <a class="item-title"> صلصة </a>
+                        <p class="item-address"> مخزن بنها </p>
+                        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                    </div>
+
+                    <div class="footer-holder">
+                        <div class="r-side">
+                            @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                            <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="horizontal-item">
+                <div class="head-holder bg-cover">
+                    @*<img src="~/img/demo-item.png">*@
+                </div>
+                <div class="content-side">
+                    <div class="content-holder">
+                        <div class="edit-item-holder">
+                            <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+                            <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                        </div>
+                        <a class="item-title"> اسمنت </a>
+                        <p class="item-address"> مخزن بنها </p>
+
+                        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                    </div>
+
+                    <div class="footer-holder">
+                        <div class="r-side">
+                            @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                            <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="horizontal-item">
+                <div class="head-holder bg-cover">
+                    @*<img src="~/img/demo-item.png">*@
+                </div>
+                <div class="content-side">
+                    <div class="content-holder">
+                        <div class="edit-item-holder">
+                            <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+                            <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                        </div>
+                        <a class="item-title"> اسمنت </a>
+                        <p class="item-address"> مخزن العبور </p>
+
+                        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                    </div>
+
+                    <div class="footer-holder">
+                        <div class="r-side">
+                            @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                            <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="horizontal-item">
+                <div class="head-holder bg-cover">
+                    @*<img src="~/img/demo-item.png">*@
+                </div>
+                <div class="content-side">
+                    <div class="content-holder">
+                        <div class="edit-item-holder">
+                            <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+                            <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                        </div>
+                        <a class="item-title"> مكرونة  </a>
+                        <p class="item-address"> مخزن بنها </p>
+
+                        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                    </div>
+
+                    <div class="footer-holder">
+                        <div class="r-side">
+                            @*   <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                            <span class="item-amount"><i class="fa fa-arrows"></i> 45 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="date-title col-xs-12">
+            <span>20 ابريل</span>
+        </p>
+
+        <div class="col-xs-6">
+            <div class="horizontal-item">
+                <div class="head-holder bg-cover">
+                    @*<img src="~/img/demo-item.png">*@
+                </div>
+                <div class="content-side">
+                    <div class="content-holder">
+                        <div class="edit-item-holder">
+
+                            <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+                            <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                        </div>
+                        <a class="item-title"> ارز ابيض </a>
+                        <p class="item-address"> مخزن بنها </p>
+
+                        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                    </div>
+
+                    <div class="footer-holder">
+                        <div class="r-side">
+                            @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                            <span class="item-amount"><i class="fa fa-arrows"></i> 48 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="horizontal-item">
+                <div class="head-holder bg-cover">
+                    @*<img src="~/img/demo-item.png">*@
+                </div>
+                <div class="content-side">
+                    <div class="content-holder">
+                        <div class="edit-item-holder">
+                            <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+                            <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                        </div>
+                        <a class="item-title"> اسمنت </a>
+                        <p class="item-address"> مخزن بنها </p>
+
+                        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                    </div>
+
+                    <div class="footer-holder">
+                        <div class="r-side">
+                            @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                            <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                            <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-area">
+            <div class="pagination-part">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+   </div>
+
+
+
+<!--customer-delete-->
+<div class="modal fade my-model" id="customer-delete" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+            <div class="clearfix"></div>
+            <h4 class="modal-title" id="myModalLabel">تأكيد مسح المنتج</h4>
+            <div class="modal-body">
+                <div class="horizontal-item">
+                    <div class="head-holder bg-cover">
+                        @*<img src="~/img/demo-item.png">*@
+                    </div>
+                    <div class="content-side">
+                        <div class="content-holder">
+                            <div class="edit-item-holder">
+                                <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+                                <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+                            </div>
+                            <a class="item-title"> اسمنت </a>
+                            <p class="item-address"> مخزن بنها </p>
+
+                            <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                        </div>
+
+                        <div class="footer-holder">
+                            <div class="r-side">
+                                @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                                <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                                <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-area">
+                    <button class="btn-gray submit" data-dismiss="modal" aria-label="Close">إلغاء </button>
+                    <button class="btn-red submit">حذف </button>
+                </div>
+            </div>
+        </div>
+        @*--------------------------------------------*@
+        @* <div class="modal fade my-model" id="customer-delete" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+        <div class="clearfix"></div>
+        <h4 class="modal-title" id="myModalLabel">تأكيد تعديل المنتج</h4>
+        <div class="modal-body">
+        <div class="horizontal-item">
+        <div class="head-holder bg-cover">
+        </div>
+        <div class="content-side">
+        <div class="content-holder">
+        <div class="edit-item-holder">
+        <a class="item-edit" data-toggle="modal" data-target="#customer-update"><i class="fa fa-fw fa fa-pencil"></i></a>
+        <a class="item-delete" data-toggle="modal" data-target="#customer-delete"><i class="fa fa-fw fa-trash-o"></i></a>
+        </div>
+        <a class="item-title"> اسمنت </a>
+        <p class="item-address"> مخزن بنها </p>
+
+        <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+        </div>
+
+        <div class="footer-holder">
+        <div class="r-side">
+
+        <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="btn-area">
+        <button class="btn-gray submit" data-dismiss="modal" aria-label="Close">إلغاء </button>
+        <button class="btn-red submit">حذف </button>
+        </div>
+        </div>
+        </div>*@
+
+
+
+        <div class="modal fade my-model" id="customer-update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+                    <div class="clearfix"></div>
+                    <h4 class="modal-title" id="myModalLabel1">تأكيد تعديل المنتج</h4>
+                    <div class="modal-body">
+                        <div class="horizontal-item">
+                            <div class="head-holder bg-cover">
+                                @*<img src="~/img/demo-item.png">*@
+                            </div>
+                            <div class="content-side">
+                                <div class="content-holder">
+                                    <div class="edit-item-holder">
+                                    </div>
+                                    <a class="item-title"> صلصة </a>
+                                    <p class="item-address"> مخزن بنها </p>
+
+                                    <p class="item-date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+                                </div>
+
+                                <div class="footer-holder">
+                                    <div class="r-side">
+                                        @*                            <span class="bed-num"><i class="fa fa-bed"></i> 2 </span>
+                                        <span class="bath-num"><i class="fa fa-bath"></i> 2 </span>*@
+                                        <span class="item-amount"><i class="fa fa-arrows"></i> 200 </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <button class="btn-gray submit" data-dismiss="modal" aria-label="Close">إلغاء </button>
+                            <button class="btn-red submit">حذف </button>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+          </div>
+       </div>
+    </div>
+
+

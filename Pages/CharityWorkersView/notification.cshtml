@@ -1,0 +1,89 @@
+﻿@page
+@model Project.Pages.DashBoard.notificationModel
+@{
+}
+@{
+    Layout = "DashBoardLayout";
+}
+
+<script>
+    const selectedListItem = document.querySelector('li.active');
+    selectedListItem.classList.remove('active');
+
+    const li = document.getElementById('link1');
+    li.classList.add('active');
+</script>
+
+<p class="main-title">
+    التنبيهات
+</p>
+
+<div class="white-holder">
+    <div class="notification-item">
+        <i class="icon notification-green"></i>
+        <div class="notification-content">
+            <p class="notification-title">تم الموافقه على اضافة عقارك</p>
+            <div class="notification-info">
+                <p class="title"> بالبنفسج فيلات — شقه للايجار </p>
+                <p class="date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <i class="icon notification-red"></i>
+        <div class="notification-content">
+            <p class="notification-title">الرجاء تحديد موعد اخر بخصوص عقار </p>
+            <div class="notification-info">
+                <p class="title"> بالبنفسج فيلات — شقه للايجار </p>
+                <p class="date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <i class="icon notification-green"></i>
+        <div class="notification-content">
+            <p class="notification-title">تم الموافقه على اضافة عقارك</p>
+            <div class="notification-info">
+                <p class="title"> بالبنفسج فيلات — شقه للايجار </p>
+                <p class="date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <i class="icon notification-red"></i>
+        <div class="notification-content">
+            <p class="notification-title">الرجاء تحديد موعد اخر بخصوص عقار </p>
+            <div class="notification-info">
+                <p class="title"> بالبنفسج فيلات — شقه للايجار </p>
+                <p class="date"> تم إضافة 07:00, 2 أبريل 2019 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-area">
+        <div class="pagination-part">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

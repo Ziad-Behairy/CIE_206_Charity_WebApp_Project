@@ -1,0 +1,61 @@
+﻿@page
+@model Project.Pages.DashBoard.contactusModel
+@{
+}
+
+@{
+    Layout = "DashBoardLayout";
+}
+
+<style>
+    #link8 {
+        background: linear-gradient(to right, #fdd27c, #ff710e);
+        filter: brightness(110%);
+    }
+</style>
+
+
+
+<p class="main-title">
+    معلومات التواصل
+</p>
+
+<div class="white-holder">
+    <form id="contactform">
+        <div class="row">
+            <div class="col-xs-2">
+                <label class="my-label">تليفونات التواصل</label>
+            </div>
+            <div class="col-xs-10">
+                <input class="my-input" name="phonenumber" placeholder="1 رقم الهاتف">
+                <input class="my-input" name="phonenumber" placeholder="2 رقم الهاتف">
+                <input class="my-input" name="phonenumber" placeholder="3 رقم الهاتف">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2">
+                <label class="my-label">البريد الالكتروني</label>
+            </div>
+            <div class="col-xs-10">
+                <input class="my-input" name="email" placeholder="1 البريد الالكتروني">
+                <input class="my-input" name="email" placeholder="2 البريد الالكتروني">
+                <input class="my-input" name="email" placeholder="3 البريد الالكتروني">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2">
+                <label class="my-label">موقع الشركه</label>
+            </div>
+            <div class="col-xs-10">
+                <iframe style="margin-bottom: 20px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.3406358872576!2d31.224090684930346!3d30.055768981878142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzIwLjgiTiAzMcKwMTMnMTguOSJF!5e0!3m2!1sar!2seg!4v1556292862499!5m2!1sar!2seg" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            </div>
+        </div>
+
+        <div class="btn-area">
+            <button class="btn-blue submit">حفظ </button>
+        </div>
+    </form>
+</div>

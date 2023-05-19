@@ -1,0 +1,230 @@
+﻿@page
+@model CIE_206.Pages.CharityWorkersView.DonatorsInfoModel
+@{
+}
+@{
+    Layout = "DashBoardLayout";
+}
+
+<style>
+    #link9 {
+        background: linear-gradient(to right, #fdd27c, #ff710e);
+        filter: brightness(110%);
+    }
+</style>
+
+
+<p class="main-title">
+    المتبرعين
+</p>
+
+<input class="my-input main-search-input" placeholder="بحث بالاسم أو رقم الهاتف">
+
+<div class="white-holder">
+    <div class="row">
+        <div class="col-xs-6">
+            <p class="main-title">
+                 بيانات المتبرعين 
+            </p>
+        </div>
+        <div class="col-xs-6">
+            <div class="btn-area">
+                <button class="btn-blue submit" data-toggle="modal" data-target="#add-donator">إضافة متبرع </button>
+            </div>
+        </div>
+    </div>
+    <table class="table my-table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col"> # </th>
+                <th scope="col">الاسم </th>
+                <th scope="col">رقم الهاتف</th>
+                <th scope="col">العنوان</th>
+                <th scope="col">البريد الالكتروني</th>
+                <th scope="col">الوظيفة</th>
+                <th scope="col">المبلغ الشهري </th>
+                <th scope="col">ملاحظات</th>
+                <th scope="col">اخري  </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(int i=0;i<Model.dt.Rows.Count; i++)
+            {
+
+            <tr>
+                    <th scope="row"> @(i+1) </th>
+                    <td>@Model.dt.Rows[i][0] </td>
+                    <td>@Model.dt.Rows[i][1] </td>
+                    <td>@Model.dt.Rows[i][2] </td>
+                    <td>@Model.dt.Rows[i][3] </td>
+                    <td>@Model.dt.Rows[i][4] </td>
+                    <td>@Model.dt.Rows[i][5] </td>
+                    <td>@Model.dt.Rows[i][6] </td>
+                   
+                <td>
+                        <a asp-page="/CRUD/Read" > حذف  </a>
+                        <a asp-page="/CRUD/Update"> | تعديل</a>
+                        
+                </td>
+                
+
+            </tr>
+            }
+    
+            
+           
+
+        </tbody>
+    </table>
+    <br />
+    <form method="post">
+        <button type="submit" class="btn btn-primary " asp-page-handler="DownloadExcel">تحميل</button>
+    </form>
+
+    <div class="btn-area">
+        <div class="pagination-part">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+<!--add-donation-->
+<div class="modal fade my-model" id="add-donator" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+            <div class="clearfix"></div>
+            <h4 class="modal-title" id="myModalLabel">اضافه بيانات متبرع </h4>
+            <div class="modal-body">
+                <form class="add-ads" method="post" enctype="multipart/form-data">
+                    <div class="white-holder">
+                        <div class="add-ads-title">
+                            بيانات المتبرع
+                        </div>
+                       
+                            <div class="add-ads-title">
+                                الاسم كامل
+                            </div>
+                            <div class="row">
+                                ,<div class="name">
+                                    <div class=" col-xs-1">
+                                        <label class="add-ads-label">الاسم الأول </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <input asp-for="@Model.D.Fname" class="add-ads-input">
+                                    </div>
+
+
+                                    <div class=" col-xs-1">
+                                        <label class="add-ads-label">الاسم الأخير </label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <input asp-for="@Model.D.Lname" class="add-ads-input">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="add-ads-title">
+                                معلومات التواصل 
+                            </div>
+                            <div class="row">
+                                <div class=" col-xs-1">
+                                    <label class="add-ads-label">رقم الهاتف   </label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input asp-for="@Model.D.PhoneNumber" class="add-ads-input">
+                                </div>
+                            <div class=" col-xs-1">
+                                <label class="add-ads-label">البريد الالكتروني   </label>
+                            </div>
+                            <div class="col-xs-2">
+                                <input asp-for="@Model.D.U_Email" class="add-ads-input">
+                            </div>
+
+
+                            </div>
+
+                            <div class="add-ads-title">
+                                تفاصيل اضافية  
+                            </div>
+                            <div class="row">
+                                <div class=" col-xs-1">
+                                    <label class="add-ads-label">  المبلغ الشهري    </label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input asp-for="@Model.D.DonationAmount" class="add-ads-input">
+                                </div>
+                            <div class=" col-xs-1">
+                                <label class="add-ads-label">  الوظيفة    </label>
+                            </div>
+                            <div class="col-xs-2">
+                                <input asp-for="@Model.D.Job" class="add-ads-input">
+                            </div>
+
+                            <div class=" col-xs-1">
+                                <label class="add-ads-label">  العنوان    </label>
+                            </div>
+                            <div class="col-xs-2">
+                                <input asp-for="@Model.D.Address" class="add-ads-input">
+                            </div>
+
+
+                            </div>
+                            
+                               
+
+                            
+                           
+
+                       
+
+                            </div>
+                            <div class="add-ads-title">
+                                الملاحظات
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1 col-xs-12">
+                                    <label class="add-ads-label">الملاحظات</label>
+                                </div>
+
+                                <div class="col-sm-10 col-xs-12">
+                                    <textarea asp-for="@Model.D.Notes" class="add-ads-input"></textarea>
+
+                                </div>
+                            </div>
+
+                            <div class="btn-area">
+                                <button type="submit" class="btn-blue submit">أضف بيانات المتبرع  </button>
+                            </div>
+                </form>
+
+                        </div>
+              
+              
+            </div>
+             
+        </div>
+     
+      

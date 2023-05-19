@@ -1,0 +1,56 @@
+﻿@page
+@model Project.Pages.DashBoard.aboutModel
+@{
+}
+
+
+@{
+    Layout = "DashBoardLayout";
+}
+
+<style>
+    #link7 {
+        background: linear-gradient(to right, #fdd27c, #ff710e);
+        filter: brightness(110%);
+    }
+</style>
+
+
+<p class="main-title">
+    عن الشركة
+</p>
+
+<div class="white-holder">
+    <form id="aboutform">
+        <div class="row">
+            <div class="col-xs-2">
+                <label class="my-label">عن الشركة</label>
+            </div>
+            <div class="col-xs-10">
+                <textarea class="my-textarea" placeholder="أكتب التعريف بالشركة" name="aboutone"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2">
+                <label class="my-label">القسم الثاني </label>
+            </div>
+            <div class="col-xs-10">
+                <textarea class="my-textarea" placeholder="أكتب التعريف بالشركة" name="abouttwo"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2">
+                <label class="my-label"> القسم الثالث </label>
+            </div>
+            <div class="col-xs-10">
+                <textarea class="my-textarea" placeholder="أكتب التعريف بالشركة" name="aboutthree"></textarea>
+            </div>
+        </div>
+
+        <div class="btn-area">
+            <button class="btn-blue submit">حفظ </button>
+        </div>
+    </form>
+</div>

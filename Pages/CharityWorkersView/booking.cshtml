@@ -1,0 +1,197 @@
+﻿@page
+@model Project.Pages.DashBoard.TasksModel
+@{
+}
+
+@{
+    Layout = "DashBoardLayout";
+}
+
+<style>
+    #link4 {
+        background: linear-gradient(to right, #fdd27c, #ff710e);
+        filter: brightness(110%);
+    }
+</style>
+
+<p class="main-title">
+    المهام
+</p>
+
+<div class="row">
+
+    <div class="col-xs-1">
+        السنة
+    </div>
+    <div class="col-xs-2">
+        <select class="my-select">
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+        </select>
+
+    </div>
+    <div class="col-xs-1">
+        المدينه
+    </div>
+    <div class="col-xs-2">
+        <select class="my-select">
+            <option>المدينه</option>
+            <option>المدينه</option>
+            <option>المدينه</option>
+        </select>
+    </div>
+
+
+    <div class="col-xs-2">
+        <button class="btn-blue submit" style="height: 40px;">فلتر </button>
+    </div>
+</div>
+<div class="row">
+        <div class="col-xs-2" >
+            <div class="btn-area">
+                <button class="btn-blue submit" data-toggle="modal" data-target="#add-task">إضافة مهمة </button>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="btn-area">
+            <button class="btn-blue submit" data-toggle="modal" data-target="#remove-donator">حذف</button>
+        </div>
+        </div>
+</div>
+
+<div class="white-holder">
+
+    <table class="table my-table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col"> المطلوب عمله</th>
+                 <th scope="col">تاريخ الاضافة</th>
+                <th scope="col">الموظف المسؤول</th>
+                <th scope="col">الحالة</th>
+                <th scope="col">تاريخ الانتهاء</th>
+                <th scope="col">ملاحظات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>نوزيع 10 كراتين</td>
+                <td>26/6/2019</td>
+                <td><p class="table-text-wrap">عمر عوض</p></td>
+                <td>تم</td>
+                <td>29/6/2019</td>
+                <td>الكرتونة صغير مثلا</td>
+
+                
+            </tr>
+            <tr>
+                <td>نوزيع 10 كراتين</td>
+                <td>26/6/2019</td>
+                <td><p class="table-text-wrap">عمر عوض</p></td>
+                <td>تم</td>
+                <td>29/6/2019</td>
+                <td>الكرتونة صغير مثلا</td>
+
+
+            </tr>
+            <tr>
+                <td>نوزيع 10 كراتين</td>
+                <td>26/6/2019</td>
+                <td><p class="table-text-wrap">عمر عوض</p></td>
+                <td>تم</td>
+                <td>29/6/2019</td>
+                <td>الكرتونة صغير مثلا</td>
+
+
+            </tr>
+            
+
+
+        </tbody>
+    </table>
+
+
+    <div class="btn-area">
+        <div class="pagination-part">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+        
+
+
+
+
+<!--customer-edit-->
+<div class="modal fade my-model" id="customer-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+            <div class="clearfix"></div>
+            <h4 class="modal-title" id="myModalLabel">حالة المستخدم</h4>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <label class="my-label">كريم السيد </label>
+                        </div>
+                        <div class="col-xs-8">
+                            <select class="my-select">
+                                <option>مستخدم نشط</option>
+                                <option>مستخدم محظور</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn-area">
+                        <button class="btn-blue submit">حفظ </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--customer-delete-->
+<div class="modal fade my-model" id="customer-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+            <div class="clearfix"></div>
+            <h4 class="modal-title" id="myModalLabel">تأكيد مسح المستخدم</h4>
+            <div class="modal-body">
+                <div class="customer-item">
+                    <div class="avatar bg-cover">
+                        <img src="~/img/login-logo.png">
+                    </div>
+                    <div class="customer-content">
+                        <p class="username">أسم الشخص</p>
+                        <p class="mail">eslam@gmail.com</p>
+                        <p class="phone">01112131415</p>
+                    </div>
+                </div>
+                <div class="btn-area">
+                    <button class="btn-gray submit" data-dismiss="modal" aria-label="Close">إلغاء </button>
+                    <button class="btn-red submit">حذف </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

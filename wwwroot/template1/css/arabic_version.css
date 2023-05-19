@@ -1,0 +1,99 @@
+﻿body {
+}
+
+
+
+#fh5co-logo {
+    width: 30%;
+    height:100%;
+    margin:0;
+}
+
+.headeer-button {
+    width:30px;
+    margin-top:15px;
+}
+
+.nav-header img {
+    margin-top:8px;
+    margin-left:-15px;
+    max-width:160px;
+    min-height:60px;
+}
+
+#fh5co-menu-wrap {
+    margin-top:0px;
+    margin-right:-22px;
+}
+
+.fh5co-link-link {
+    font-weight:bold;
+    color:white;
+    font-size:20px;
+}
+
+#fh5co-menu-wrap a {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.sf-menu {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.fh5co-cover {
+    background-image: url(../../images/sideimage.jpg);
+    background-size:cover;
+}
+
+.feature-left {
+    display:flex;
+    flex-direction:row-reverse;
+}
+
+.feature-copy {
+    direction:rtl;
+    margin-right:20px;
+}
+
+.feature-text {
+    direction: rtl;
+    margin-right: 20px;
+}
+
+.feature-text strong {
+    color:black;
+    font-size:20px;
+}
+
+
+.photogalary1 {
+    background-image: url(../../images/photo8.jpg);
+}
+
+.photogalary2 {
+    background-image: url(../../images/photo7.jpg);
+}
+
+.photogalary3 {
+    background-image: url(../../images/photo9.jpg);
+}
+
+.photogalary4 {
+    background-image: url(../../images/photo10.jpg);
+}
+
+#fh5co-portfolio-list h2 {
+    font-weight:bold;
+}
+
+#fh5co-portfolio-list strong {
+    font-weight: bold;
+    color:white;
+}
+
+.galaryopen {
+    font-weight:bold;
+}

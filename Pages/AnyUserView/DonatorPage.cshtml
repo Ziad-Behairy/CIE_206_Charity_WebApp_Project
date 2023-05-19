@@ -1,0 +1,93 @@
+﻿@page
+@model CIE_206.Pages.AnyUserView.DonatorPageModel
+@{
+    ViewData["Title"] = "طلب التبــــــــــرع";
+}
+
+<style>
+    h1, p {
+   text-align: right;
+}
+
+    .form-control {
+    width:50%;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+    .form-group
+    {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap:wrap;
+    }
+    label
+    {
+        width:100%;
+    }
+</style>
+
+
+<h1>اهلا بك في جمعية عائلتي</h1> 
+<p> هدف جمعية "عائلتي" الخيرية هو مساعدة الأشخاص المحتاجين وتحسين حياتهم.</p>
+<p>ملاحظة سوف نقوم بالاتصال بك علي رقم الهاتف او سيتم التواصل عن طريق البريد الالكتروني لاتمام التبرع</p>
+<form method="post" style="text-align: right;">
+    <div class="form-group" style="display: none;">
+        <label for="id">ID:</label>
+        <input type="hidden" class="form-control" id="id" name="Id" />
+        @*<input type="hidden" class="form-control" id="id" name="Id"  value="@Model.Id">*@
+    </div>
+    <div class="row">
+        <div class="col-xs-6 form-group">
+            <label for="FirstName">الاسم الاول</label>
+            <input type="text" class="form-control" id="firstname" name="FirstName" dir="rtl">
+        </div>
+          <div class="col-xs-6 form-group">
+            <label for="LastName">الاسم الاخير</label>
+            <input type="text" class="form-control" id="lastname" name="LastName" dir="rtl">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="PhoneNumber">رقم الهاتف</label>
+        <input type="text" class="form-control" id="phonenumber" name="PhoneNumber" dir="rtl">
+    </div>
+    <div class="form-group">
+        <label for="Email">البريد الالكتروني</label>
+        <input type="email" class="form-control" id="email" name="Email" >
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">رقم الهاتف</label>
+        <input type="text" class="form-control" id="phonenumber" name="PhoneNumber">
+    </div>
+    <div class="form-group">
+        <label for="Address">العــــنوان</label>
+        <input type="text" class="form-control" id="address" name="Address" dir="rtl" >
+    </div>
+    <div class="form-group">
+        <label for="donationType">هل التبرع لمرة واحدة فقط ام شهريا</label>
+        <select class="form-control" style="text-align: right"; id="donationType" name="DonationType">
+            <option value="One-time">مرة واحدة فقط</option>
+            <option value="Monthly">شهريا</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="paymethod">اختر طريقة التبرع المفضلة لديك</label>
+        <select class="form-control" id="paymethod" name="PayMethod"  style="text-align: right;">
+            <option value="cash"> مندوب ياتي الي عنوان المنزل</option>
+            <option value="Fawry">فوري</option>
+            <option value="Visa">فيزا او ماستر كارد</option>
+            <option value="vodacash">فودافون كاش - اورانج كاش - اتصالات كاش </option>
+            <option value="cash"> التبرع داخل الجمـــعية</option>
+        </select>
+    </div>
+    <br/>
+    <div class="btn-area">
+        <button class="btn btn-primary">   تبـــرع    </button>
+    </div>
+</form>
+
+
+

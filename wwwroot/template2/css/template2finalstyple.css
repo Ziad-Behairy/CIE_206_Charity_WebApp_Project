@@ -1,0 +1,66 @@
+﻿
+
+.about_section1 {
+    background-image: url(../../images/photo11.jpg);
+    background-size:cover;
+    background-position:center;
+}
+
+.about_section2.layout_padding {
+    padding: 32px;
+    border-left: none;
+    border-right: none;
+    backdrop-filter: blur(15px);
+}
+
+
+
+
+.about_section1 p {
+    font-weight:bold;
+    font-size:18px;
+    line-height:35px;
+}
+
+.aboutsquare {
+    direction:rtl;
+}
+
+
+
+.contact_section1 {
+    background-color: white;
+    background-image: url(../../images/photo11.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.contact_section2 {
+    padding: 29px;
+    border-left: none;
+    border-right: none;
+    backdrop-filter: blur(15px);
+}
+
+.contact_section1 h1 {
+    color: white;
+}
+
+.contact_section2 div a {
+    background-color: #ff5722;
+}
+
+.send_bt a {
+    border: transparent solid 5px;
+    box-sizing: border-box;
+}
+
+.send_bt a:hover {
+    background-color: white;
+    border: #ff5722 solid 5px;
+    box-sizing:border-box;
+}
+
+

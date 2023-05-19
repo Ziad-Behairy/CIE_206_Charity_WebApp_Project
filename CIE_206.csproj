@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\ViewModel\**" />
+    <Compile Remove="Pages\AdminView\**" />
+    <Compile Remove="Pages\EmployeeView\**" />
+    <Content Remove="Models\ViewModel\**" />
+    <Content Remove="Pages\AdminView\**" />
+    <Content Remove="Pages\EmployeeView\**" />
+    <EmbeddedResource Remove="Models\ViewModel\**" />
+    <EmbeddedResource Remove="Pages\AdminView\**" />
+    <EmbeddedResource Remove="Pages\EmployeeView\**" />
+    <None Remove="Models\ViewModel\**" />
+    <None Remove="Pages\AdminView\**" />
+    <None Remove="Pages\EmployeeView\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.101.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.34" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.32" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+</Project>
