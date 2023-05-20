@@ -8,11 +8,11 @@ namespace CIE_206.Pages.AnyUserView
         public IActionResult OnGet()
         {
 
-            if (HttpContext.Session.GetString("UserType") == null)
-            {
-                return RedirectToPage("/AnyUserView/LoginPage", new {msg = "„‰ ›÷·ﬂ ”Ã· œŒÊ· «Ê·« ·ﬂÌ   »—⁄" });
-            }
-            return Page();
+            //if (HttpContext.Session.GetString("UserType") == null)
+            //{
+            //    return RedirectToPage("/AnyUserView/LoginPage", new {msg = "„‰ ›÷·ﬂ ”Ã· œŒÊ· «Ê·« ·ﬂÌ   »—⁄" });
+            //}
+           return Page();
         }
 
 

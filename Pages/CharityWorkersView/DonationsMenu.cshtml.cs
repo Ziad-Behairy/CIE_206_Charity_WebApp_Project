@@ -11,6 +11,7 @@ namespace CIE_206.Pages.CharityWorkersView
             {
                 return RedirectToPage("/Index");
             }
+            
             return Page();
         }
     }

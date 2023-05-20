@@ -1,4 +1,6 @@
 ﻿using CIE_206.Models.TableModel;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using System.Data.SqlClient;
 
 namespace CIE_206.Models.DataBase
 {
@@ -14,6 +16,6 @@ namespace CIE_206.Models.DataBase
                 $" VALUES (N'{D.Fname}', N'{D.Lname}', N'{D.U_Email}', N'{D.PhoneNumber}', N'{D.Address}', N'{D.VoulanteerId}', N'{D.VoulanteerSection}', N'{D.Notes}')");
             return NumberOfRowsAffected;
         }
-
+     
     }
 }

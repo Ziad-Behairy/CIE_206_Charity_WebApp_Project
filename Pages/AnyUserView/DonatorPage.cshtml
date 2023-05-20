@@ -2,31 +2,70 @@
 @model CIE_206.Pages.AnyUserView.DonatorPageModel
 @{
     ViewData["Title"] = "طلب التبــــــــــرع";
+    Layout = "HomePagesLayout";
 }
-
 <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #3a3b3c;
+    }
+
     h1, p {
-   text-align: right;
-}
+        text-align: right;
+        padding: 0 15px;
+    }
+
+    h1 {
+        color: #343a40;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        margin-bottom: 5px;
+        color: #6c757d;
+    }
 
     .form-control {
-    width:50%;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-}
+        width: 100%;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+    }
 
-    .form-group
-    {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex-wrap:wrap;
+    .btn-area {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
     }
-    label
-    {
-        width:100%;
+
+    .btn-primary {
+        padding: 10px 20px;
+        border: none;
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 </style>
 
 
@@ -39,16 +78,16 @@
         <input type="hidden" class="form-control" id="id" name="Id" />
         @*<input type="hidden" class="form-control" id="id" name="Id"  value="@Model.Id">*@
     </div>
-    <div class="row">
-        <div class="col-xs-6 form-group">
-            <label for="FirstName">الاسم الاول</label>
-            <input type="text" class="form-control" id="firstname" name="FirstName" dir="rtl">
-        </div>
-          <div class="col-xs-6 form-group">
+        <div class="col-xs-8 form-group">
             <label for="LastName">الاسم الاخير</label>
             <input type="text" class="form-control" id="lastname" name="LastName" dir="rtl">
         </div>
-    </div>
+        <br />
+        <div class="col-xs-8 form-group">
+            <label for="FirstName">الاسم الاول</label>
+            <input type="text" class="form-control" id="firstname" name="FirstName" dir="rtl">
+        </div>
+    <br />
 
     <div class="form-group">
         <label for="PhoneNumber">رقم الهاتف</label>

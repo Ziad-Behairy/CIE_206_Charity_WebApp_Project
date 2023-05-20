@@ -21,10 +21,10 @@ namespace CIE_206.Pages.CharityWorkersView
         }
         public IActionResult OnGet()
         {
-            if (HttpContext.Session.GetString("UserType") != "A" && HttpContext.Session.GetString("UserType") != "E" && HttpContext.Session.GetString("UserType") != "DE")
-            {
-                return RedirectToPage("/Index");
-            }
+            //if (HttpContext.Session.GetString("UserType") != "A" && HttpContext.Session.GetString("UserType") != "E" && HttpContext.Session.GetString("UserType") != "DE")
+            //{
+            //    return RedirectToPage("/Index");
+            //}
 
 
 

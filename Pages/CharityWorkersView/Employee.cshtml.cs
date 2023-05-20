@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using System.Data;
-using CIE_206.Models.DataBase;
 
 namespace CIE_206.Pages.CharityWorkersView
 {

@@ -20,18 +20,16 @@ namespace CIE_206.Pages.CharityWorkersView
             DB = new DonatorDB();
             dt= new DataTable();
         }
-        public IActionResult OnGet()
+        public void OnGet()
         {
-			if (HttpContext.Session.GetString("UserType") != "A" && HttpContext.Session.GetString("UserType") != "E" && HttpContext.Session.GetString("UserType") != "DE")
-			{
-				return RedirectToPage("/Index");
-			}
-
-
+			//if (HttpContext.Session.GetString("UserType") != "A" && HttpContext.Session.GetString("UserType") != "E" && HttpContext.Session.GetString("UserType") != "DE")
+			//{
+			//	return RedirectToPage("/Index");
+			//}
 
 			dt =(DataTable)DB.getdonatorinfo();
 
-			return Page();
+			//return Page();
 		}
 
 
@@ -47,6 +45,18 @@ namespace CIE_206.Pages.CharityWorkersView
             return Page();
 
         }
+        public IActionResult OnPostStatistics()
+        {
+            if (ModelState.IsValid)
+            {
+
+                return RedirectToPage("/CharityWorkersView/DonatorStat");
+            }
+            return Page();
+
+        }
+
+
 
 
 
@@ -56,8 +66,9 @@ namespace CIE_206.Pages.CharityWorkersView
             dt = (DataTable)DB.getdonatorinfo();
             // Create a DataTable
             DataTable ddt = new DataTable("Sample Data");
-            ddt.Columns.AddRange(new DataColumn[7]
+            ddt.Columns.AddRange(new DataColumn[8]
            {
+                            new DataColumn("الرقم التعريفي", typeof(string)),
                             new DataColumn("الاسم", typeof(string)),
                             new DataColumn("رقم الهاتف", typeof(string)),
                             new DataColumn("العنوان", typeof(string)),
@@ -72,7 +83,7 @@ namespace CIE_206.Pages.CharityWorkersView
             // Add rows to the DataTable
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ddt.Rows.Add(dt.Rows[i][0], dt.Rows[i][1], dt.Rows[i][2], dt.Rows[i][3], dt.Rows[i][4], dt.Rows[i][5], dt.Rows[i][6]);
+                ddt.Rows.Add(dt.Rows[i][0], dt.Rows[i][1], dt.Rows[i][2], dt.Rows[i][3], dt.Rows[i][4], dt.Rows[i][5], dt.Rows[i][6], dt.Rows[i][7]);
 
             }
 
