@@ -1,0 +1,27 @@
+﻿@page
+@model CIE_206.Pages.CharityWorkersView.DeleteDonatorModel
+@{
+    Layout = "DashBoardLayout";
+}
+
+@*<p>هل انت متاكد من انك تريد حذف بيانات المتبرع</p>
+<p style ="color:red"> @Model.dt</p>
+
+<form method = "post">
+
+	<button class = "btn btn-danger "> حذف </button>
+	<a class ="btn btn-secondary" asp-page ="/CharityWorkersView/DonatorsInfo"> الغاء</a>
+
+
+</form>*@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; font-size: 2em;">
+    <div>
+        <p style="font-size: 1.7em">هل انت متاكد من انك تريد حذف بيانات المتبرع</p>
+        <p style ="color:red; font-size: 12em;"> @Model.dt</p>
+        <br />
+        <form method = "post" style="display: inline-block;">
+            <button class = "btn btn-danger" style="font-size: 1.2em;"> حذف </button>
+            <a class ="btn btn-secondary" asp-page ="/CharityWorkersView/DonatorsInfo" style="font-size: 1.2em;"> الغاء</a>
+        </form>
+    </div>
+</div>

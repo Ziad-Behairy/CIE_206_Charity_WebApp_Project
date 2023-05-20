@@ -10,7 +10,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddSession();
 builder.Services.AddSingleton<DB>();
 builder.Services.AddSingleton<NeedyDB>();
-
+builder.Services.AddSingleton<DonatorDB>();
+builder.Services.AddSingleton<VolunteerDB>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

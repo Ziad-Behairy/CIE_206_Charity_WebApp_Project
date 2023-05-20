@@ -1,0 +1,94 @@
+﻿@page
+@model CIE_206.Pages.CharityWorkersView.EditDonatorModel
+@{
+    Layout = "DashBoardLayout";
+}
+
+    <title>Update Donator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <div class="container">
+        <h2>تعديل بيانات المتبرع</h2>
+        <form action="/UpdateDonator" method="post">
+            <div class="form-group">
+                <label for="fname">الاسم الاول</label>
+                <input type="text" id="fname" asp-for="@Model.D.Fname" required>
+            </div>
+            <div class="form-group">
+                <label for="lname">الاسم الاخير</label>
+            <input type="text" id="lname" asp-for="@Model.D.Lname" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">رقم الهاتف</label>
+            <input type="text" id="phoneNumber" asp-for="@Model.D.PhoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="address">العنوان</label>
+            <input type="text" id="address" asp-for="@Model.D.Address" required>
+            </div>
+            <div class="form-group">
+                <label for="job">الوظيفة</label>
+            <input type="text" id="job" asp-for="@Model.D.Job" required>
+            </div>
+            <div class="form-group">
+                <label for="email">البريد الالكتروني</label>
+            <input type="email" id="email" asp-for="@Model.D.U_Email" required>
+            </div>
+            <div class="form-group">
+                <label for="donationAmount">المبلغ الشهري</label>
+            <input type="text" id="donationAmount" asp-for="@Model.D.DonationAmount" required>
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+            <textarea id="notes" asp-for="@Model.D.Notes" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">تعديل بيانات المتبرع</button>
+            </div>
+        </form>
+    </div>

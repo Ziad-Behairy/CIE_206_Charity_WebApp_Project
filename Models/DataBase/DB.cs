@@ -12,7 +12,9 @@ namespace CIE_206.Models.DataBase
         public SqlConnection Con { get; set; }
         public DB() 
         {
+
             string ConnectionString = "Data Source=OMAR;Initial Catalog=data;Integrated Security=True";
+
             /*"Data Source=ELZOZ;Initial Catalog=TestDB;Integrated Security=True";*/
             /*"Server=DESKTOP-A27M9ME;Database=UsersAdminDB;Trusted_Connection=True;MultipleActiveResultSets=true;";*/
             Con = new SqlConnection(ConnectionString);

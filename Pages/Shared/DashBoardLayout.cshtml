@@ -1,5 +1,5 @@
-﻿@if (Context.Session.GetString("UserType") == "A" || Context.Session.GetString("UserType") == "E" || Context.Session.GetString("UserType") == "DE")
-{
+﻿@*@if (Context.Session.GetString("UserType") == "A" || Context.Session.GetString("UserType") == "E" || Context.Session.GetString("UserType") == "DE")
+*@{
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -36,41 +36,42 @@
             </div>
             <ul class="aside-list">
                 @{
-                    if (Context.Session.GetString("UserType") == "A")
+                   // if (Context.Session.GetString("UserType") == "A")
                     {
                         <li id="link1"><a asp-page="/CharityWorkersView/statistics"><i class="fa fa-bar-chart fa-fw"></i> الاحصائيات </a></li>
                         <li id="link2"><a asp-page="/CharityWorkersView/Storage"><i class="fa fa-home fa-fw"></i> المخازن </a></li>
                         <li id="link4"><a asp-page="/CharityWorkersView/Tasks"><i class="fa fa-clock-o fa-fw"></i> المهام </a></li>
                         <li id="link6"><a asp-page="/CharityWorkersView/Employee"><i class="fa fa-address-card-o"></i> الموظفون </a></li>
-                        <li id="link9"><a asp-page="/CharityWorkersView/DonationsMenu"><i class="fas fa-handshake-o"></i>  المتبرعين </a></li>
+                    <li id="link9"><a asp-page="/CharityWorkersView/DonatorsInfo"><i class="fas fa-handshake-o"></i>   بيانات المتبرعين  </a></li>
+                        <li id="link12"><a asp-page="/CharityWorkersView/DonationsMenu"><i class="fas fa-handshake-o"></i>  قائمة التبرعات </a></li>
                         <li id="link10"><a asp-page="/CharityWorkersView/NeedyMenu"><i class="fa fa-heart-o"></i>  المستفيدين </a></li>
                         <li id="link11"><a asp-page="/CharityWorkersView/Volunteers"><i class="fa fa-user-plus fa-fw"></i>  المتطوعيين </a></li>
                         <li id="link7"><a asp-page="/CharityWorkersView/about"><i class="fa fa-laptop fa-fw"></i> عن الشركة </a></li>
                         <li id="link8"><a asp-page="/CharityWorkersView/contactus"><i class="fa fa-comments fa-fw"></i> معلومات التواصل </a></li>
                     }
-                    else if (Context.Session.GetString("UserType") == "E")
-                    {
-                        <li id="link2"><a asp-page="/CharityWorkersView/Storage"><i class="fa fa-home fa-fw"></i> المخازن </a></li>
-                        <li id="link4"><a asp-page="/CharityWorkersView/Tasks"><i class="fa fa-clock-o fa-fw"></i> المهام </a></li>
-                        <li id="link10"><a asp-page="/CharityWorkersView/NeedyMenu"><i class="fa fa-heart-o"></i>  المستفيدين </a></li>
+                    //else if (Context.Session.GetString("UserType") == "E")
+                    //{
+                    //    <li id="link2"><a asp-page="/CharityWorkersView/Storage"><i class="fa fa-home fa-fw"></i> المخازن </a></li>
+                    //    <li id="link4"><a asp-page="/CharityWorkersView/Tasks"><i class="fa fa-clock-o fa-fw"></i> المهام </a></li>
+                    //    <li id="link10"><a asp-page="/CharityWorkersView/NeedyMenu"><i class="fa fa-heart-o"></i>  المستفيدين </a></li>
 
-                    }
-                    else if (Context.Session.GetString("UserType") == "DE")
-                    {
-                         @*  <ul class="aside-list">
+                    //}
+                    //else if (Context.Session.GetString("UserType") == "DE")
+                    //{
+                    //     @*  <ul class="aside-list">
 
-                        <li id="link1"><a asp-page="/CharityWorkersView/statistics"><i class="fa fa-bar-chart fa-fw"></i> الاحصائيات </a></li>
-                        <li id="link2"><a asp-page="/CharityWorkersView/Storage"><i class="fa fa-home fa-fw"></i> المخازن </a></li>
+                    //    <li id="link1"><a asp-page="/CharityWorkersView/statistics"><i class="fa fa-bar-chart fa-fw"></i> الاحصائيات </a></li>
+                    //    <li id="link2"><a asp-page="/CharityWorkersView/Storage"><i class="fa fa-home fa-fw"></i> المخازن </a></li>
 
-                        <li id="link4"><a asp-page="/CharityWorkersView/Tasks"><i class="fa fa-clock-o fa-fw"></i> المهام </a></li>
-                         <li id="link6"><a asp-page="/CharityWorkersView/Employee"><i class="fa fa-address-card-o"></i> الموظفون </a></li>
-                        <li id="link9"><a asp-page="/CharityWorkersView/DonationsMenu"><i class="fas fa-handshake-o"></i>  المتبرعين </a></li>
-                        <li id="link10"><a asp-page="/CharityWorkersView/NeedyMenu"><i class="fa fa-heart-o"></i>  المستفيدين </a></li>
-                        <li id="link11"><a asp-page="/CharityWorkersView/Volunteers"><i class="fa fa-user-plus fa-fw"></i>  المتطوعيين </a></li>
-                        <li id="link7"><a asp-page="/CharityWorkersView/about"><i class="fa fa-laptop fa-fw"></i> عن الشركة </a></li>
-                        <li id="link8"><a asp-page="/CharityWorkersView/contactus"><i class="fa fa-comments fa-fw"></i> معلومات التواصل </a></li>
-                        </ul>*@
-                    }
+                    //    <li id="link4"><a asp-page="/CharityWorkersView/Tasks"><i class="fa fa-clock-o fa-fw"></i> المهام </a></li>
+                    //     <li id="link6"><a asp-page="/CharityWorkersView/Employee"><i class="fa fa-address-card-o"></i> الموظفون </a></li>
+                    //    <li id="link9"><a asp-page="/CharityWorkersView/DonationsMenu"><i class="fas fa-handshake-o"></i>  المتبرعين </a></li>
+                    //    <li id="link10"><a asp-page="/CharityWorkersView/NeedyMenu"><i class="fa fa-heart-o"></i>  المستفيدين </a></li>
+                    //    <li id="link11"><a asp-page="/CharityWorkersView/Volunteers"><i class="fa fa-user-plus fa-fw"></i>  المتطوعيين </a></li>
+                    //    <li id="link7"><a asp-page="/CharityWorkersView/about"><i class="fa fa-laptop fa-fw"></i> عن الشركة </a></li>
+                    //    <li id="link8"><a asp-page="/CharityWorkersView/contactus"><i class="fa fa-comments fa-fw"></i> معلومات التواصل </a></li>
+                    //    </ul>*@
+                    //}
 
                 }
 
@@ -151,8 +152,9 @@
 
 
 }
-else
+@*else
 {
     Layout = "HomePagesLayout";
     @RenderBody()
 }
+*@
