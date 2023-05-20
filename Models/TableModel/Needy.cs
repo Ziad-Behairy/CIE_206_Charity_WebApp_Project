@@ -107,7 +107,7 @@ namespace CIE_206.Models.TableModel
         [NotMapped]
         [Required(ErrorMessage = "مطلوب صورة الهوية الأمامية")]
 
-        public IFormFile Frontidimg { get; set; }
+        public IFormFile Frontidimg { get; set; } 
 
         [Column("FrontidimgPath")]
 

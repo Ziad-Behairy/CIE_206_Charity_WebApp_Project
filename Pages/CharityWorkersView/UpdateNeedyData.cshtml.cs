@@ -4,6 +4,9 @@ using System;
 using CIE_206.Models.DataBase;
 using CIE_206.Models.TableModel;
 using System.Collections.Generic;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using System.Diagnostics.CodeAnalysis;
+
 namespace CIE_206.Pages.CharityWorkersView
 {
     public class UpdateNeedyDataModel : PageModel
@@ -57,12 +60,16 @@ namespace CIE_206.Pages.CharityWorkersView
             }
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(string id)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            needyList = db.GetNeedy(id);
+            Needy.Number = needyList[0].Number;
+            Needy.NeedyID = needyList[0].NeedyID;
+            Needy.ImageDataPath = needyList[0].ImageDataPath;
+            Needy.FrontidimgPath = needyList[0].FrontidimgPath;
+            Needy.BackidimgPath = needyList[0].BackidimgPath;
+            
+          
 
             // Update the needy information in the database
             db.UpdateNeedy(Needy); // Replace `UpdateNeedy` with your method to update the needy data
