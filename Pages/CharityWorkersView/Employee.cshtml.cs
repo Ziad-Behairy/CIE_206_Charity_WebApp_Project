@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace CIE_206.Pages.CharityWorkersView
 {
     public class EmployeeModel : PageModel
@@ -16,26 +17,20 @@ namespace CIE_206.Pages.CharityWorkersView
         {
             Db = db;
         }
-        public IActionResult OnGet()
+        public void OnGet()
         {
-			if (HttpContext.Session.GetString("UserType") != "A" && HttpContext.Session.GetString("UserType") != "E" && HttpContext.Session.GetString("UserType") != "DE")
-			{
-				return RedirectToPage("/Index");
-			}
-			
 
-			dt = new DataTable();
+            dt = new DataTable();
             if (HttpContext.Session.GetString("UserType") == "A")
             {
-                dt = (DataTable)Db.FunctionExcuteReader("SELECT T.T_Name, T.T_assigne_day, CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName, T.T_State, T.T_notes\r\nFROM Tasks AS T \r\nJOIN Employees AS E  ON T.T_Employee_id = E.EmployeeID\r\nJOIN Users AS U ON UserID= E.EmployeeID\r\norder by CONCAT(U.Fname, ' ', U.Lname)");
+                dt = (DataTable)Db.FunctionExcuteReader("SELECT CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName,E.EmployeeSSN,U.PhoneNumber,E.EmployeeAddress AS EmployeeAdress, B.BranchName,E.Salary \r\nFROM Branchs AS B JOIN Employees AS E  ON B.BranchID = E.WorkingBranch\r\nJOIN Users AS U ON UserID= E.EmployeeID\r\norder by CONCAT(U.Fname, ' ', U.Lname)\r\n");
             }
+            /*just in case any edit*/
             else if ((HttpContext.Session.GetString("UserType") == "E"))
             {
-                dt = (DataTable)Db.FunctionExcuteReader("SELECT T.T_Name, T.T_assigne_day, CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName, T.T_State, T.T_notes\r\nFROM Tasks AS T \r\nJOIN Employees AS E  ON T.T_Employee_id = E.EmployeeID\r\nJOIN Users AS U ON UserID= E.EmployeeID\r\nWHERE U.UserID = " + HttpContext.Session.GetString("UserID") + " order by CONCAT(U.Fname, ' ', U.Lname)");
+                dt = (DataTable)Db.FunctionExcuteReader("SELECT CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName,E.EmployeeSSN,U.PhoneNumber,E.EmployeeAddress AS EmployeeAddress, B.BranchName, E.Salary \r\nFROM Employees AS E JOIN Branchs AS B ON B.BranchID = E.WorkingBranch JOIN Users AS U ON U.UserID = E.EmployeeIDWHERE U.UserID = " + HttpContext.Session.GetString("UserID") + " ORDER BY CONCAT(U.Fname, ' ', U.Lname); ");
 
             }
-
-			return Page();
-		}
+        }
     }
 }

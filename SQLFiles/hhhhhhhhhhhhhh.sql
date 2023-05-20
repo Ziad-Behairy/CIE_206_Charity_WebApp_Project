@@ -1,6 +1,6 @@
-create database CharityDB;
+create database CharityDB1;
 
-use CharityDB;
+use CharityDB1;
 
 
 
@@ -168,13 +168,8 @@ select Fname+' '+Lname as name,PhoneNumber,U_Email,Address, Job, DonationAmount,
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE Needy (
-    Number int IDENTITY(1,1),
-    NeedyID AS RIGHT(YEAR(CreateDate), 4) + CASE 
-        WHEN Number < 10 THEN '000' + CAST(Number AS CHAR(1))
-        WHEN Number < 100 THEN '00' + CAST(Number AS CHAR(2))
-        WHEN Number < 1000 THEN '0' + CAST(Number AS CHAR(3))
-        ELSE CAST(Number AS VARCHAR(20))
-    END PERSISTED NOT NULL PRIMARY KEY,
+    Number int UNIQUE ,
+    NeedyID varchar(20) PRIMARY KEY,
     Fname nvarchar(255) COLLATE Arabic_CI_AS NOT NULL,
     Mname nvarchar(255) COLLATE Arabic_CI_AS,
     Lname nvarchar(255) COLLATE Arabic_CI_AS NOT NULL,
@@ -203,6 +198,86 @@ CREATE TABLE Needy (
 );
 
 
+
+CREATE TABLE Employees (
+    EmployeeID int PRIMARY KEY,
+    WorkingBranch int FOREIGN KEY REFERENCES Branches(BranchID) ON DELETE SET NULL ON UPDATE CASCADE,
+    Salary int NOT NULL,
+    AreaCode varchar(255) NOT NULL,
+    ZipCode varchar(255) NOT NULL,
+    Permission varchar(255) NOT NULL
+);
+
+CREATE TABLE Branches (
+    BranchID int PRIMARY KEY NOT NULL CHECK (BranchID > 0),
+    AreaCode varchar(255) NOT NULL,
+    ZipCode varchar(255) NOT NULL,
+    BranchName varchar(max) NOT NULL,
+    Branch_Admin int FOREIGN KEY REFERENCES Employees(EmployeeID) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+
+
+
+
+
+
+
+CREATE TRIGGER CheckFinishDay
+ON Tasks
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT *
+        FROM inserted 
+        WHERE T_finsh_day < T_assigne_day AND T_State = 'Êã'
+    )
+    BEGIN
+        RAISERROR ('The finish day cannot be earlier than the assignment day when the state is "Êã".', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+
+
+
+CREATE TABLE Tasks (
+    T_Name nvarchar(50) NOT NULL,
+    T_assigne_day date NOT NULL,
+    T_State nvarchar(13) NOT NULL CHECK (T_State IN ('Êã', 'ÌÇÑí ÇáÚãá')),
+    T_finsh_day date,
+    T_Employee_id int FOREIGN KEY REFERENCES Employees(EmployeeID),
+    T_notes nvarchar(max)
+);
+
+
+
+-- Create a trigger to enforce the CHECK constraint
+CREATE TRIGGER CheckFinishDay
+ON Tasks
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT *
+        FROM inserted 
+        WHERE T_finsh_day < T_assigne_day AND T_State = 'Êã'
+    )
+    BEGIN
+        RAISERROR ('The finish day cannot be earlier than the assignment day when the state is "Êã".', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END;
+
+
+
+insert into Tasks values (N'ÊæÒíÚ ßÇÑÊíä ÑãÖÇä','1923-01-01',N'Êã','1924-03-01',7,N'ÊãÊãÊãÊãÊãÊãÊãÊãÊãÊ' )
+
+
+SELECT T.T_Name, T.T_assigne_day, CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName, T.T_State,T_finsh_day ,T.T_notes 
+FROM Tasks AS T JOIN Employees AS E  ON T.T_Employee_id = E.EmployeeID
+JOIN Users AS U ON UserID= E.EmployeeID
+order by CONCAT(U.Fname, ' ', U.Lname)
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 

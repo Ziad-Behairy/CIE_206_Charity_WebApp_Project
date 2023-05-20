@@ -5,6 +5,23 @@
 @{
     Layout = "DashBoardLayout";
 }
+@functions {
+    public int CalculateAge(DateTime birthdate)
+    {
+        DateTime currentDate = DateTime.Now;
+        int age = currentDate.Year - birthdate.Year;
+
+        // Check if the current date is before the birthdate
+        // to determine if the age should be decreased by 1
+        if (currentDate < birthdate.AddYears(age))
+        {
+            age--;
+        }
+
+        return age;
+    }
+}
+
 <style>
     #link10 {
         background: linear-gradient(to right, #fdd27c, #ff710e);
@@ -29,40 +46,78 @@
         <div class="col-xs-6">
             <div class="btn-area">
 
-                <a class="btn-blue submit" asp-page="/CharityWorkersView/Add-Needy">إضافةمستفيد </a>
+                <a class="btn-blue submit" asp-page="/CharityWorkersView/Add-Needy">إضافة مستفيد </a>
             </div>
         </div>
     </div>
     <table class="table my-table">
         <thead class="thead-light">
             <tr>
-                <th scope="col">رقم القائمة </th>
+                <th scope="col"> الرقم التسلسلي </th>
                 <th scope="col">الاسم الاول</th>
                 <th scope="col">الاسم الاخير </th>
                 <th scope="col">رقم الهاتف</th>
-                <th scope="col">العنوان</th>
                 <th scope="col">الرقم القومي</th>
-                <th scope="col">الحالة الاجتماعية</th>
-                <th scope="col">عدد مرات الاستفادة </th>
-                <th scope="col">عدد الابناء </th>
-                <th scope="col">المطلوب للساعدة </th>
+                <th scope="col"> تاريخ الميلاد</th>
+                <th scope="col">الحالة التعليمية </th>
+                <th scope="col"> حالة القبول </th>
+                <th scope="col"> التفاصيل كاملة </th>
             </tr>
         </thead>
         <tbody>
-            @for (int i = 0; i < 50; i++)
+            @for (int i = 0; i < Model.dt.Rows.Count; i++)
             {
                 <tr>
-                    <td>@(i+1)</td>
-                    <td>احمد</td>
-                    <td>امين </td>
-                    <td>01002078447</td>
-                    <td>بني سويف  </td>
-                    <td>30301012203319 </td>
-                    <td>اعزب</td>
-                    <td>مرة واحدة  </td>
-                    <td>4</td>
-                    <td>5000 </td>
+                    <td>@Model.dt.Rows[i][1] </td>
+                    <td>@Model.dt.Rows[i][2] </td>
+                    <td>@Model.dt.Rows[i][5] </td>
+                    <td>@Model.dt.Rows[i][7] </td>
+                    <td>@Model.dt.Rows[i][6] </td>
 
+                    <td>@Model.dt.Rows[i][8] </td>
+
+
+                    <td>@Model.dt.Rows[i][18] </td>
+
+                    
+                        @{
+                            string status = Model.dt.Rows[i][22].ToString();
+                            string statusText = "";
+                    
+                            switch (status)
+                            {
+                                case "0":
+                                    statusText = "قيد الانتظار";
+                                <td>
+                                    <span class="delegates-pending" >
+                                        @statusText
+                                    </span>
+                                </td>
+
+                                break;
+                                case "1":
+                                    statusText = "مقبول";
+                                  <td>  
+                                    <span class="delegates-available" >
+                                                 @statusText
+                                    </span>
+                                    </td>
+                                    break;
+                                case "2":
+                                    statusText = "مرفوض";
+                                    <td>
+                                <span class="delegates-notavailable">
+                                    @statusText
+                                </span>
+                                                </td>
+                                break;
+                            }
+                        }
+                    
+                    <td>
+                        <a asp-page="/CharityWorkersView/NeedyDetails" asp-route-id="@Model.dt.Rows[i][1]"> التفاصيل  </a>
+
+                    </td>
 
 
                 </tr>

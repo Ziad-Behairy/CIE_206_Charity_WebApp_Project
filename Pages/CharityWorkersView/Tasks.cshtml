@@ -81,11 +81,27 @@
             @for (int i = 0; i < @Model.dt.Rows.Count; i++)
             {
                 <tr>
-                    <th scope="row">@i</th>
-                    @for (int j = 0; j < @Model.dt.Columns.Count; j++)
-                    {
-                        <td>@Model.dt.Rows[i][j]</td>
-                    }
+
+
+                    <td>@Model.dt.Rows[i][0]</td>
+
+                    <td scope="row">@Model.dt.Rows[i][1] </td>
+
+                    <td>@Model.dt.Rows[i][2]</td>
+                    <td>@Model.dt.Rows[i][3]</td>
+                    <td>@Model.dt.Rows[i][4]</td>
+                    <td>@Model.dt.Rows[i][5]</td> 
+
+
+
+
+
+                    <td>
+
+                        <a asp-page="/CharityWorkersView/DEL_Task" asp-route-id="@Model.dt.Rows[i][1]"> حذف  </a>
+                        <a asp-page="/CharityWorkersView/DEL_Task" asp-route-id="@Model.dt.Rows[i][1]"> | تعديل</a>
+
+                    </td>
                 </tr>
             }
         </tbody>

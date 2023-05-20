@@ -12,7 +12,9 @@ namespace CIE_206.Models.DataBase
         public SqlConnection Con { get; set; }
         public DB() 
         {
-            string ConnectionString = "Data Source=DESKTOP-G5CNRES;Initial Catalog=AminTables;Integrated Security=True";
+
+            string ConnectionString = "Data Source=OMAR;Initial Catalog=data;Integrated Security=True";
+
             /*"Data Source=ELZOZ;Initial Catalog=TestDB;Integrated Security=True";*/
             /*"Server=DESKTOP-A27M9ME;Database=UsersAdminDB;Trusted_Connection=True;MultipleActiveResultSets=true;";*/
             Con = new SqlConnection(ConnectionString);
@@ -59,9 +61,9 @@ namespace CIE_206.Models.DataBase
             {
                 Con.Open();
                 SqlCommand cmd = new SqlCommand(Q, Con);
-                int NumberOfRows = cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 Con.Close();
-                return NumberOfRows;
+                return 0;
             }
             catch (SqlException ex)
             {
