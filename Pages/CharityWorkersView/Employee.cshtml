@@ -30,83 +30,124 @@
                 <button class="btn-blue submit" data-toggle="modal" data-target="#add-delegate">إضافة موظف </button>
             </div>
         </div>
+
     </div>
-    <table class="table my-table">
+    <table class="table">
         <thead class="thead-light">
             <tr>
                 <th scope="col">الموظفون</th>
+                <th scope="col">الرقم القومي</th>
+
                 <th scope="col">رقم الهاتف</th>
                 <th scope="col">العنوان</th>
                 <th scope="col">الفرع</th>
                 <th>المرتب</th>
-                <th scope="col">التفاصيل</th>
+                <th scope="col">اخري</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <div class=" bg-cover delegates-avatar">
-                        <img src="~/img/login-logo.png">
-                    </div>
-                  احمد الجندي
-                <td>01002078447</td>
-                <td>
-                    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
-                </td>
-                <td>بنها</td>
-                <td>300</td>
-                <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">خذف</a></td>
-            </tr>
-             <tr>
-                <td>
-                    <div class=" bg-cover delegates-avatar">
-                        <img src="~/img/login-logo.png">
-                    </div>
-                  احمد الجندي
-                <td>01002078447</td>
-                <td>
-                    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
-                </td>
-                <td>القاهرة</td>
-                                <td>300</td>
+            @for (int i = 0; i < @Model.dt.Rows.Count; i++)
+            {
+                <tr>
+                    
+                    
+                     <td>@Model.dt.Rows[i][0]</td>
+                     
+                    <td scope="row">@Model.dt.Rows[i][1] </td>
 
-                <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">حذف</a></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class=" bg-cover delegates-avatar">
-                        <img src="~/img/login-logo.png">
-                    </div>
-                    احمد الجندي
-                <td>01002078447</td>
-                <td>
-                    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
-                </td>
-                <td>القاهرة</td>
-                <td>300</td>
-
-                <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">حذف</a></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class=" bg-cover delegates-avatar">
-                        <img src="~/img/login-logo.png">
-                    </div>
-                    احمد الجندي
-                <td>01002078447</td>
-                <td>
-                    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
-                </td>
-                <td>القاهرة</td>
-                <td>300</td>
-
-                <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">حذف</a></td>
-            </tr>
+                    <td>@Model.dt.Rows[i][2]</td>
+                    <td>@Model.dt.Rows[i][3]</td>
+                    <td>@Model.dt.Rows[i][4]</td>
+                    <td>@Model.dt.Rows[i][5]</td>
 
 
 
+
+
+                    <td>
+
+                        <a asp-page="/CharityWorkersView/DEL_EMPLOYEE" asp-route-id="@Model.dt.Rows[i][1]"> حذف  </a>
+                        <a asp-page="/CharityWorkersView/DEL_EMPLOYEE" asp-route-id="@Model.dt.Rows[i][1]"> | تعديل</a>
+
+                    </td>
+                    
+
+                </tr>
+            }
         </tbody>
     </table>
+
+
+
+
+
+    @*<table class="table my-table">
+
+    <tbody>
+    <tr>
+    <td>
+    <div class=" bg-cover delegates-avatar">
+    <img src="~/img/login-logo.png">
+    </div>
+    احمد الجندي
+    <td>01002078447</td>
+    <td>
+    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
+    </td>
+    <td>بنها</td>
+    <td>300</td>
+    <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">خذف</a></td>
+    </tr>
+    <tr>
+    <td>
+    <div class=" bg-cover delegates-avatar">
+    <img src="~/img/login-logo.png">
+    </div>
+    احمد الجندي
+    <td>01002078447</td>
+    <td>
+    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
+    </td>
+    <td>القاهرة</td>
+    <td>300</td>
+
+    <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">حذف</a></td>
+    </tr>
+    <tr>
+    <td>
+    <div class=" bg-cover delegates-avatar">
+    <img src="~/img/login-logo.png">
+    </div>
+    احمد الجندي
+    <td>01002078447</td>
+    <td>
+    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
+    </td>
+    <td>القاهرة</td>
+    <td>300</td>
+
+    <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">حذف</a></td>
+    </tr>
+    <tr>
+    <td>
+    <div class=" bg-cover delegates-avatar">
+    <img src="~/img/login-logo.png">
+    </div>
+    احمد الجندي
+    <td>01002078447</td>
+    <td>
+    <p class="table-text-wrap">حسن المامون مدينة نصر-القاهرة</p>
+    </td>
+    <td>القاهرة</td>
+    <td>300</td>
+
+    <td><a class="delegates-details" data-toggle="modal" data-target="#delegates-details">حذف</a></td>
+    </tr>
+
+
+
+    </tbody>
+    </table>*@
 
 
     <div class="btn-area">
@@ -233,9 +274,9 @@
             <div class="clearfix"></div>
             <h4 class="modal-title" id="myModalLabel">حذف الموظف</h4>
             <div class="btn-area">
-                            <button class="btn-gray submit" data-dismiss="modal" aria-label="Close">إلغاء </button>
-                            <button class="btn-red submit">حذف </button>
-             </div>
+                <button class="btn-gray submit" data-dismiss="modal" aria-label="Close">إلغاء </button>
+                <button class="btn-red submit">حذف </button>
+            </div>
 
         </div>
     </div>
@@ -252,37 +293,46 @@
             <div class="modal-body">
                 <form class="add-ads" id="addform">
                     <div class="white-holder">
-@*                        <div class="row">
-                            <div class="col-sm-2 col-xs-12">
-                                <label class="add-ads-label">الصور</label>
-                            </div>
+                        @*                        <div class="row">
+                        <div class="col-sm-2 col-xs-12">
+                        <label class="add-ads-label">الصور</label>
+                        </div>
 
-                            <div class="col-sm-10 col-xs-12">
-                                <div class="imageupload panel panel-default" style="width: 190px;">
-                                    <div class="placeholder-img"> <img src="~/img/upload-placeholder.png" alt="img"> </div>
+                        <div class="col-sm-10 col-xs-12">
+                        <div class="imageupload panel panel-default" style="width: 190px;">
+                        <div class="placeholder-img"> <img src="~/img/upload-placeholder.png" alt="img"> </div>
 
-                                    <p class="img-title">الصوره ألمندوب</p>
-                                    <div class="file-tab panel-body">
-                                        <div class="upload-tools">
-                                            <label class="btn btn-default btn-file">
-                                                <span><i class="fa fa-folder-open-o"></i></span>
-                                                <input type="file" name="imagefile">
-                                            </label>
-                                            <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <p class="img-title">الصوره ألمندوب</p>
+                        <div class="file-tab panel-body">
+                        <div class="upload-tools">
+                        <label class="btn btn-default btn-file">
+                        <span><i class="fa fa-folder-open-o"></i></span>
+                        <input type="file" name="imagefile">
+                        </label>
+                        <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
                         </div>*@
 
 
                         <div class="row">
                             <div class="col-sm-2 col-xs-12">
-                                <label class="add-ads-label">اسم المندوب</label>
+                                <label class="add-ads-label">الاسم الاول</label>
                             </div>
 
                             <div class="col-sm-10 col-xs-12">
-                                <input type="text" class="add-ads-input" name="itemName">
+                                <input type="text" class="add-ads-input" name="FName">
+                            </div>
+                        </div>
+                                                <div class="row">
+                            <div class="col-sm-2 col-xs-12">
+                                <label class="add-ads-label">الاسم الأخير</label>
+                            </div>
+
+                            <div class="col-sm-10 col-xs-12">
+                                <input type="text" class="add-ads-input" name="LName">
                             </div>
                         </div>
                         <div class="row">
@@ -294,19 +344,28 @@
                                 <input type="text" class="add-ads-input" name="itemName">
                             </div>
                         </div>
-                        <div class="row">
+                                                <div class="row">
                             <div class="col-sm-2 col-xs-12">
-                                <label class="add-ads-label">رقم المندوب</label>
+                                <label class="add-ads-label"> رقم الهاتف</label>
                             </div>
 
                             <div class="col-sm-10 col-xs-12">
-                                <input type="text" class="add-ads-input" name="price">
+                                <input type="text" class="add-ads-input" name="itemName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2 col-xs-12">
+                                <label class="add-ads-label">اسم الفرع</label>
+                            </div>
+
+                            <div class="col-sm-10 col-xs-12">
+                                <input type="text" class="add-ads-input" name="branch name">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-2 col-xs-12">
-                                <label class="add-ads-label">عندوان المندوب</label>
+                                <label class="add-ads-label">عنوان الموظف</label>
                             </div>
 
                             <div class="col-sm-10 col-xs-12">
@@ -314,9 +373,44 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-sm-2 col-xs-12">
+                                <label class="add-ads-label">البريد الالكتروني</label>
+                            </div>
+
+                            <div class="col-sm-10 col-xs-12">
+                                <input type="text" class="add-ads-input" name="branch name">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-2 col-xs-12">
+                                <label class="add-ads-label"> الراتب</label>
+                            </div>
+
+                            <div class="col-sm-10 col-xs-12">
+                                <input type="text" class="add-ads-input" name="salary">
+                            </div>
+
+                                
+                        </div>
+                        <div class="row">
+                                <div class="birthdate input-container" dir="rtl">
+                                    <label >تاريخ الميلاد:</label>
+                                    <input type="date" >
+                                </div>
+
+                                <div class="gender input-container">
+                                    <input type="radio" id="male" name="gender" value="male" required>
+                                    <label for="male">ذكر</label>
+                                    <input type="radio"  id="female" name="gender" value="female" required>
+                                    <label for="female">انثي</label>
+                                </div>
+                        </div>
+
 
                         <div class="btn-area">
-                            <button class="btn-blue submit">أضف مندوب </button>
+                            <button class="btn-blue submit">إضافة </button>
                         </div>
                     </div>
                 </form>
