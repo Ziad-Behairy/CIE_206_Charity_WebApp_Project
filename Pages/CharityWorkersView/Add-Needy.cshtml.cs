@@ -1,43 +1,31 @@
 using CIE_206.Models.DataBase;
 using CIE_206.Models.TableModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using Microsoft.Extensions.Logging;
+using System;
+using System.IO;
 
 namespace CIE_206.Pages.CharityWorkersView
 {
     public class Add_NeedyModel : PageModel
     {
-
         private readonly NeedyDB db;
         private readonly ILogger<Add_NeedyModel> _logger;
+
         public Add_NeedyModel(ILogger<Add_NeedyModel> logger, NeedyDB db)
         {
             _logger = logger;
             this.db = db;
         }
 
-        public int done { get; set; }
         [BindProperty]
         public Needy Needy { get; set; }
 
-
-
-        public IActionResult OnGet()
+        public void OnGet()
         {
-			if (HttpContext.Session.GetString("UserType") != "A" && HttpContext.Session.GetString("UserType") != "E" && HttpContext.Session.GetString("UserType") != "DE")
-			{
-				return RedirectToPage("/Index");
-			}
-
-
-
-
-
-			return Page();
-		}
-
-
+        }
 
         private void SaveImageFile(IFormFile file, string filePath)
         {
@@ -46,42 +34,40 @@ namespace CIE_206.Pages.CharityWorkersView
                 file.CopyTo(stream);
             }
         }
-        private string GetFilePath(IFormFile file)
+
+        private string GetUniqueFilePath(string fileName)
         {
-            var fileName = Path.GetFileName(file.FileName);
-            var filePath = Path.Combine("Uploads", fileName);
+            var uniqueName = $"{DateTime.Now.Ticks}_{Path.GetRandomFileName()}";
+            var uniqueFileName = $"{uniqueName}{Path.GetExtension(fileName)}";
+            var filePath = Path.Combine("wwwroot/UploadedImgs", uniqueFileName).Replace("\\", "/");
             return filePath;
         }
+
         public IActionResult OnPost()
-
         {
-            
-            
-            
-
-
             if (ModelState.IsValid)
             {
                 if (Request.Form.Files.Count > 0)
                 {
-
                     if (Needy.ImageData != null && Needy.ImageData.Length > 0)
                     {
-                        Needy.ImageDataPath = GetFilePath(Needy.ImageData);
-                        SaveImageFile(Needy.ImageData, Needy.ImageDataPath);
+                        string imagePath = GetUniqueFilePath(Needy.ImageData.FileName);
+                        SaveImageFile(Needy.ImageData, imagePath);
+                        Needy.ImageDataPath = imagePath.Replace("wwwroot", "");
                     }
-
 
                     if (Needy.Frontidimg != null && Needy.Frontidimg.Length > 0)
                     {
-                        Needy.FrontidimgPath = GetFilePath(Needy.Frontidimg);
-                        SaveImageFile(Needy.Frontidimg, Needy.FrontidimgPath);
+                        string frontImagePath = GetUniqueFilePath(Needy.Frontidimg.FileName);
+                        SaveImageFile(Needy.Frontidimg, frontImagePath);
+                        Needy.FrontidimgPath = frontImagePath.Replace("wwwroot", "");
                     }
 
                     if (Needy.Backidimg != null && Needy.Backidimg.Length > 0)
                     {
-                        Needy.BackidimgPath = GetFilePath(Needy.Backidimg);
-                        SaveImageFile(Needy.Backidimg, Needy.BackidimgPath);
+                        string backImagePath = GetUniqueFilePath(Needy.Backidimg.FileName);
+                        SaveImageFile(Needy.Backidimg, backImagePath);
+                        Needy.BackidimgPath = backImagePath.Replace("wwwroot", "");
                     }
 
                     // Save the Needy model to the database
@@ -93,7 +79,5 @@ namespace CIE_206.Pages.CharityWorkersView
             // Invalid ModelState, redirect to the Employee page
             return Page();
         }
-      
     }
-}  
-
+}

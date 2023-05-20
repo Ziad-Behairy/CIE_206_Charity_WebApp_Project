@@ -1,92 +1,19 @@
 ﻿@page
-@model CIE_206.Pages.CharityWorkersView.Add_NeedyModel
-@{
-}
-
+@model CIE_206.Pages.CharityWorkersView.UpdateNeedyDataModel
 @{
     Layout = "DashBoardLayout";
 }
 
-<style>
-    #link1 {
-        background: linear-gradient(to right, #fdd27c, #ff710e);
-        filter: brightness(110%);
-    }
-
-
-
-
-</style>
-
-
-
 <p class="main-title">
-    اضافة حالة
+    تعديل الحالة
 </p>
+
 
 <div class="white-holder">
     <form class="add-ads" method="post" enctype="multipart/form-data" asp-validation-summary="All">
         <div>
             <div class="add-ads-title">
                 بيانات الحالة
-            </div>
-            <div class="row">
-                <div class="col-xs-1">
-                    <label class="add-ads-label">صور الحالة</label>
-                </div>
-
-                <div class="col-xs-11">
-                    <div class="imageupload panel panel-default">
-                        <div class="placeholder-img"> <img src="~/images/CharityWorkersView/upload-placeholder.png" alt="img"> </div>
-
-                        <p class="img-title">الصورة الأساسية</p>
-                        <div class="file-tab panel-body">
-                            <div class="upload-tools">
-                                <label class="btn btn-default btn-file">
-                                    <span><i class="fa fa-folder-open-o"></i></span>
-                                    <input asp-for="@Model.Needy.ImageData" type="file">
-                                </label>
-                                <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
-                            </div>
-                        </div>
-                        <span asp-validation-for="@Model.Needy.ImageData" class="text-danger"></span>
-
-                    </div>
-
-                    <div class="imageupload panel panel-default">
-                        <div class="placeholder-img"> <img src="~/images/CharityWorkersView/upload-placeholder.png" alt="img"> </div>
-
-                        <p class="img-title">صورة البطاقة الوجه الأمامي</p>
-                        <div class="file-tab panel-body">
-                            <div class="upload-tools">
-                                <label class="btn btn-default btn-file">
-                                    <span><i class="fa fa-folder-open-o"></i></span>
-                                    <input asp-for="@Model.Needy.Frontidimg" type="file">
-                                </label>
-                                <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
-                            </div>
-                        </div>
-                        <span asp-validation-for="@Model.Needy.Frontidimg" class="text-danger"></span>
-
-                    </div>
-
-                    <div class="imageupload panel panel-default">
-                        <div class="placeholder-img"> <img src="~/images/CharityWorkersView/upload-placeholder.png" alt="img"> </div>
-
-                        <p class="img-title">صورة البطاقة الوجه الخلفي</p>
-                        <div class="file-tab panel-body">
-                            <div class="upload-tools">
-                                <label class="btn btn-default btn-file">
-                                    <span><i class="fa fa-folder-open-o"></i></span>
-                                    <input asp-for="@Model.Needy.Backidimg" type="file">
-                                </label>
-                                <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i></button>
-                            </div>
-                        </div>
-                        <span asp-validation-for="@Model.Needy.Backidimg" class="text-danger"></span>
-
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -216,7 +143,6 @@
             </div>
             <div class="col-xs-2">
                 <input type="date" asp-for="@Model.Needy.Birthdate" class="add-ads-input" asp-format="{0:dd MMM yyyy}">
-                <span asp-validation-for="@Model.Needy.Birthdate" class="text-danger"></span>
             </div>
 
 
@@ -330,7 +256,7 @@
             </div>
 
             <div class="btn-area">
-                <button type="submit" class="btn-blue submit">أضف مستفيد  </button>
+                <button type="submit" class="btn-blue submit">تعديل البيانات   </button>
             </div>
         </div>
     </form>

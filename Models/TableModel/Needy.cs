@@ -8,13 +8,11 @@ namespace CIE_206.Models.TableModel
     [Table("Needy")]
     public class Needy
     {
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public int Number { get; set; }
 
-        //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        //[Column("NeedyID")]
-        //public string NeedyID { get; set; }
+        [Column("Number")]
+        public int Number { get; set; }
+        [Column("NeedyID")]
+        public string NeedyID { get; set; } = " ";
 
         [Required(ErrorMessage = "مطلوب الاسم الأول.")]
         [Column("Fname")]
@@ -109,7 +107,7 @@ namespace CIE_206.Models.TableModel
         [NotMapped]
         [Required(ErrorMessage = "مطلوب صورة الهوية الأمامية")]
 
-        public IFormFile Frontidimg { get; set; }
+        public IFormFile Frontidimg { get; set; } 
 
         [Column("FrontidimgPath")]
 

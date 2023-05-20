@@ -168,13 +168,8 @@ select Fname+' '+Lname as name,PhoneNumber,U_Email,Address, Job, DonationAmount,
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE Needy (
-    Number int IDENTITY(1,1),
-    NeedyID AS RIGHT(YEAR(CreateDate), 4) + CASE 
-        WHEN Number < 10 THEN '000' + CAST(Number AS CHAR(1))
-        WHEN Number < 100 THEN '00' + CAST(Number AS CHAR(2))
-        WHEN Number < 1000 THEN '0' + CAST(Number AS CHAR(3))
-        ELSE CAST(Number AS VARCHAR(20))
-    END PERSISTED NOT NULL PRIMARY KEY,
+    Number int UNIQUE ,
+    NeedyID varchar(20) PRIMARY KEY,
     Fname nvarchar(255) COLLATE Arabic_CI_AS NOT NULL,
     Mname nvarchar(255) COLLATE Arabic_CI_AS,
     Lname nvarchar(255) COLLATE Arabic_CI_AS NOT NULL,
