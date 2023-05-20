@@ -1,0 +1,218 @@
+﻿@page
+@model CIE_206.Pages.CharityWorkersView.NeedyDetailsModel
+@{
+    Layout = "DashBoardLayout";
+}
+
+<div class="alldata">
+          @foreach (var needy in Model.needyList)
+{
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3>الصور</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-user" aria-hidden="true"></i> الصورة الشخصية
+                    </p>
+                    <img src="@needy.ImageDataPath" class="img-fluid img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-id-card" aria-hidden="true"></i> صورة البطاقة الأمامية
+                    </p>
+                    <img src="@needy.FrontidimgPath" class="img-fluid img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-id-card-o" aria-hidden="true"></i> صورة البطاقة الخلفية
+                    </p>
+                    <img src="@needy.BackidimgPath" class="img-fluid img-thumbnail" style="max-width: 200px; max-height: 200px;" />
+                </div>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>بيانات المستفيد</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="white-holder">
+                <p class="small-title">
+                    <i class="fa fa-users" aria-hidden="true"></i> الاسم الكامل
+                </p>
+                    <p>@needy.Fname @needy.Mname @needy.Lname @needy.Familyname</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="white-holder">
+                <p class="small-title">
+                    <i class="fa fa-id-card-o" aria-hidden="true"></i> الرقم القومي
+                </p>
+                <p>@needy.SSN</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="white-holder">
+                <p class="small-title">
+                    <i class="fa fa-phone" aria-hidden="true"></i> رقم الهاتف
+                </p>
+                <p>@needy.PhoneNum</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="white-holder">
+                <p class="small-title">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i> العنوان
+                </p>
+                <p>@needy.StreetAddress - @needy.Area</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="white-holder">
+                <p class="small-title">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i> الوظيفة
+                </p>
+                <p>@needy.Job</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="white-holder">
+                <p class="small-title">
+                    <i class="fa fa-usd" aria-hidden="true"></i> الدخل الشهري
+                </p>
+                <p>@needy.Income</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-users" aria-hidden="true"></i> عدد أفراد الأسرة
+                    </p>
+                    <p>@needy.NumberOfFamilyMembers</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i> الحالة التعليمية
+                    </p>
+                    <p>@needy.EducationalState</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-heartbeat" aria-hidden="true"></i> الحالة الصحية
+                    </p>
+                    <p>@needy.HealthStatus</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-users" aria-hidden="true"></i> الحالة الاجتماعية
+                    </p>
+                    <p>@needy.SocialState</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="white-holder">
+                    <p class="small-title">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i> تفاصيل إضافية
+                    </p>
+                    <p>@needy.Details</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="btn-group">
+                    <a asp-route-id="@needy.NeedyID" asp-page="/CharityWorkersView/UpdateNeedyData" class="btn btn-primary btn-lg btn-cool" style="background-color: black; opacity: 0.7;">تعديل</a>
+
+                        <button class="btn btn-danger btn-lg btn-cool" style=" opacity: 0.7;" data-toggle="modal" data-target="#delete-needy">حذف</button>
+                  
+                </div>
+            </div>
+        </div>
+
+             <div class="modal fade my-model" id="delete-needy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <button type="button" class="close-model" data-dismiss="modal" aria-label="Close">إغلاق</button>
+                    <div class="clearfix"></div>
+                    <h4 class="modal-title" id="myModalLabel"> حذف الحالة </h4>
+                    <div class="modal-body">
+                        <form class="add-ads" method="post" id="addform">
+                            <div class="white-holder">
+                               
+
+                                <div class="row">
+                                    <div class="col-sm-2 col-xs-12">
+                                        <label class="add-ads-label"> هل أنت متأكد من حذف :</label>
+                                        <p>@needy.Fname @needy.Mname @needy.Lname @needy.Familyname</p>
+                                    </div>
+
+                                   
+
+                                   <div class="btn-area">
+                                    <button asp-route-iddelete="@needy.NeedyID" class="btn-blue submit">حذف  </button>
+                                   </div>
+                               </div>
+                           </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
