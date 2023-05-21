@@ -39,7 +39,8 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col"> # </th>
-                <th scope="col">الاسم </th>
+                <th scope="col">الاسم الاول  </th>
+                <th scope="col">الاسم الاخير  </th>
                 <th scope="col">البريد الالكتروني</th>
                 <th scope="col">رقم الهاتف</th>
                 <th scope="col">العنوان</th>
@@ -62,6 +63,7 @@
                     <td>@Model.dt.Rows[i][4] </td>
                     <td>@Model.dt.Rows[i][5] </td>
                     <td>@Model.dt.Rows[i][6] </td>
+                    <td>@Model.dt.Rows[i][7] </td>
 
                     <td>
                         <a asp-page="/CRUD/Read"> حذف  </a>

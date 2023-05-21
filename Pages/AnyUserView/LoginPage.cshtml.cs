@@ -49,7 +49,7 @@ namespace CIE_206.Pages.AnyUserView
                 string UserFname = row.Field<string>("Fname");
                 string email = row.Field<string>("U_Email");
                 string UT = row.Field<string>("UserType");
-                string id = row.Field<int>("UserID").ToString();
+                string id = row.Field<string>("UserID").ToString();
 
                 HttpContext.Session.SetString("UserFname", UserFname);
                 HttpContext.Session.SetString("Email", email);

@@ -8,7 +8,7 @@ namespace CIE_206.Models.DataBase
     {
         public object getVoulanteerinfo()
         {
-            return FunctionExcuteReader("select Fname+' '+Lname as name, U_Email, PhoneNumber, Address, VoulanteerSection, VoulanteerId , Notes from Voulanteer");
+            return FunctionExcuteReader("select p.Fname,p.Lname,p.PhoneNumber,v.VoulanteerSection,v.VoulanteerId,v.Address,v.Notes,v.VolunteerBranch from \r\nVolunteer as v left join Persons as p\r\non(v.VoulanteerId=p.PersonID)");
         }
         public object AddVoulanteerInformation(Volunteer D)
         {

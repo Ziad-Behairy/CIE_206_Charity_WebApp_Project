@@ -23,12 +23,12 @@ namespace CIE_206.Pages.CharityWorkersView
             dt = new DataTable();
             if (HttpContext.Session.GetString("UserType") == "A")
             {
-                dt = (DataTable)Db.FunctionExcuteReader("SELECT CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName,E.EmployeeSSN,U.PhoneNumber,E.EmployeeAddress AS EmployeeAdress, B.BranchName,E.Salary \r\nFROM Branchs AS B JOIN Employees AS E  ON B.BranchID = E.WorkingBranch\r\nJOIN Users AS U ON UserID= E.EmployeeID\r\norder by CONCAT(U.Fname, ' ', U.Lname)\r\n");
+                dt = (DataTable)Db.FunctionExcuteReader("select p.Fname,p.Lname,v.EmployeeSSN ,p.PhoneNumber,v.EmployeeAdress,v.WorkingBranch,v.Salary from \r\nEmployees as v left join Persons as p\r\non("+ HttpContext.Session.GetString("UserID") + "=p.PersonID)");
             }
             /*just in case any edit*/
             else if ((HttpContext.Session.GetString("UserType") == "E"))
             {
-                dt = (DataTable)Db.FunctionExcuteReader("SELECT CONCAT(U.Fname, ' ', U.Lname) AS EmployeeName,E.EmployeeSSN,U.PhoneNumber,E.EmployeeAddress AS EmployeeAddress, B.BranchName, E.Salary \r\nFROM Employees AS E JOIN Branchs AS B ON B.BranchID = E.WorkingBranch JOIN Users AS U ON U.UserID = E.EmployeeIDWHERE U.UserID = " + HttpContext.Session.GetString("UserID") + " ORDER BY CONCAT(U.Fname, ' ', U.Lname); ");
+                dt = (DataTable)Db.FunctionExcuteReader("select p.Fname,p.Lname,v.EmployeeSSN ,p.PhoneNumber,v.EmployeeAdress,v.WorkingBranch,v.Salary from \r\nEmployees as v left join Persons as p\r\non(" + HttpContext.Session.GetString("UserID") + "=p.PersonID)");
 
             }
         }

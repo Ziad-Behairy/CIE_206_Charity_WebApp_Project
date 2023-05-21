@@ -35,9 +35,9 @@
     <table class="table">
         <thead class="thead-light">
             <tr>
-                <th scope="col">الموظفون</th>
+                <th scope="col">الاسم الاول</th>
+                <th scope="col">الاسم الاخير</th>
                 <th scope="col">الرقم القومي</th>
-
                 <th scope="col">رقم الهاتف</th>
                 <th scope="col">العنوان</th>
                 <th scope="col">الفرع</th>
@@ -53,12 +53,13 @@
                     
                      <td>@Model.dt.Rows[i][0]</td>
                      
-                    <td scope="row">@Model.dt.Rows[i][1] </td>
+                    <td >@Model.dt.Rows[i][1] </td>
 
-                    <td>@Model.dt.Rows[i][2]</td>
+                    <td scope="row">@Model.dt.Rows[i][2]</td>
                     <td>@Model.dt.Rows[i][3]</td>
                     <td>@Model.dt.Rows[i][4]</td>
                     <td>@Model.dt.Rows[i][5]</td>
+                    <td>@Model.dt.Rows[i][6]</td>
 
 
 
@@ -66,8 +67,8 @@
 
                     <td>
 
-                        <a asp-page="/CharityWorkersView/DEL_EMPLOYEE" asp-route-id="@Model.dt.Rows[i][1]"> حذف  </a>
-                        <a asp-page="/CharityWorkersView/DEL_EMPLOYEE" asp-route-id="@Model.dt.Rows[i][1]"> | تعديل</a>
+                        <a asp-page="/CharityWorkersView/DEL_EMPLOYEE" asp-route-id="@Model.dt.Rows[i][2]"> حذف  </a>
+                        <a asp-page="/CharityWorkersView/DEL_EMPLOYEE" asp-route-id="@Model.dt.Rows[i][2]"> | تعديل</a>
 
                     </td>
                     
